@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="411dp"
+        android:layout_height="129dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/white"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/hinhanh"
+            android:layout_width="119dp"
+            android:layout_height="126dp"
+            android:layout_marginLeft="0dp"
+
+            />
+
+        <TextView
+            android:id="@+id/thongtin"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@+id/hinhanh"
+            android:text="thông tin"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ngay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/thongtin"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@+id/hinhanh"
+            android:text="ngay"
+            android:textColor="#DDDDDD"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/noidung"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ngay"
+            android:layout_marginLeft="0dp"
+            android:layout_toRightOf="@+id/hinhanh"
+            android:text="noi dung"
+            android:textColor="#808080"
+            android:textSize="10dp" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

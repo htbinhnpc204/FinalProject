@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.htbinh.finalproject.Activity.KetQuaActivity;
+import com.htbinh.finalproject.Activity.TinTucActivity;
 import com.htbinh.finalproject.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
