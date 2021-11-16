@@ -12,4 +12,5 @@
     <color name="main_color">#3682F5</color>
     <color name="stroke">#B8D8FE</color>
     <color name="light_red">#FFB9B9</color>
+    <color name="Transparent">#00000000</color>
 </resources>

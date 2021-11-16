@@ -29,7 +29,7 @@ public class ExamScheduleFragment extends Fragment {
 
         examScheduleModels.add(new ExamScheduleModel("29/06/2021","220LTTQ02","Lập trình trực quan","Hoàng Thị Mỹ Lệ","21h00","ONLINE"));
         examScheduleModels.add(new ExamScheduleModel("29/06/2021","220LTTQ02","Lập trình trực quan","Hoàng Thị Mỹ Lệ","22h00","ONLINE"));
-        examScheduleModels.add(new ExamScheduleModel("01/07/2021","220NNCNC02","Ngoại ngữ chuyên ngành công nghệ thông tin","Võ Trung Hùng","GIỜ THI: 17h00-19h00","ONLINE"));
+        examScheduleModels.add(new ExamScheduleModel("01/07/2021","220NNCNC02","Ngoại ngữ chuyên ngành CNTT","Võ Trung Hùng","17h00-19h00","ONLINE"));
         examScheduleModels.add(new ExamScheduleModel("24/07/2021","220VKT01","Vẽ kỹ thuật","Nguyễn Đức Sỹ","13h00","ONLINE"));
         examScheduleModels.add(new ExamScheduleModel("24/07/2021","220VKT01","Vẽ kỹ thuật","Nguyễn Đức Sỹ","13h00","ONLINE"));
         final ListView listView = binding.listExSchedule;
