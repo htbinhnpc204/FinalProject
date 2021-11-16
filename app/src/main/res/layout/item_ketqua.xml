@@ -122,11 +122,13 @@
             android:textColor="@color/black"/>
 
         <ImageView
-            android:id="@+id/btnXemchitiet"
+            android:id="@+id/btnXemthem"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_below="@+id/textViewhbong"
             android:layout_alignParentRight="true"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="0dp"
             android:onClick="viewxemthem"
             android:src="@drawable/img_more" />
     </RelativeLayout>

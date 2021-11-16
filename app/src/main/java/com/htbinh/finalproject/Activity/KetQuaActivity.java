@@ -1,6 +1,9 @@
 package com.htbinh.finalproject.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +17,7 @@ import java.util.ArrayList;
 public class KetQuaActivity extends AppCompatActivity {
     ListView lvKetqua;
     ArrayList<KetQuaModel> arrayKetqua;
-
+    ImageView btnXemChiTiet;
     KetQuaAdapter adapter;
 
     @Override
@@ -33,9 +36,17 @@ public class KetQuaActivity extends AppCompatActivity {
         lvKetqua.setAdapter(adapter);
     }
     private void Anhxa() {
+        btnXemChiTiet=findViewById(R.id.btnXemthem);
         lvKetqua = (ListView) findViewById(R.id.lvKetqua);
-    }
 
+    }
+    public void goBack(View v){
+        finish();
+    }
+    public void viewxemthem(View v){
+        Intent in =new Intent(KetQuaActivity.this,ChiTietKetQuaActivity.class);
+        startActivity(in);
+    }
 
 
 }
