@@ -39,6 +39,7 @@
             android:paddingRight="10dp"
             android:textColor="@color/black"
             android:textSize="18sp"
+            android:textStyle="bold"
             android:backgroundTint="@color/Transparent"
             app:layout_constraintBottom_toBottomOf="@+id/tvngaythi"
             app:layout_constraintEnd_toEndOf="parent"
