@@ -22,4 +22,10 @@
         android:name="com.htbinh.finalproject.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_examSchedule"
+        android:name="com.htbinh.finalproject.ui.examSchedule.ExamScheduleFragment"
+        android:label="Lịch Thi"
+        tools:layout="@layout/fragment_exam_schedule" />
 </navigation>

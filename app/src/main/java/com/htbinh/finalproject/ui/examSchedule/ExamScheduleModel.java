@@ -1,4 +1,4 @@
-package com.htbinh.finalproject.Model;
+package com.htbinh.finalproject.ui.examSchedule;
 
 public class ExamScheduleModel {
     private String ngaythi;

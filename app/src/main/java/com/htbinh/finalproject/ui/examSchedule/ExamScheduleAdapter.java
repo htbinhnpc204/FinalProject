@@ -1,4 +1,4 @@
-package com.htbinh.finalproject.Adapter;
+package com.htbinh.finalproject.ui.examSchedule;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.htbinh.finalproject.Model.ExamScheduleModel;
 import com.htbinh.finalproject.R;
 
 import java.util.List;
