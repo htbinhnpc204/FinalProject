@@ -22,4 +22,15 @@
         android:name="com.htbinh.finalproject.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_result"
+        android:name="com.htbinh.finalproject.ui.result.ResultFragment"
+        android:label="Kết quả học tập"
+        tools:layout="@layout/fragment_result" />
+    <fragment
+        android:id="@+id/nav_resultdetails"
+        android:name="com.htbinh.finalproject.ui.resultdetails.ResultDetailsFragment"
+        android:label="Chi tiết kết quả học tập"
+        tools:layout="@layout/fragment_resultdetails" />
 </navigation>

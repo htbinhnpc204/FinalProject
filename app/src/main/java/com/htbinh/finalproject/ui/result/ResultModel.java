@@ -1,13 +1,13 @@
-package com.htbinh.finalproject.Model;
+package com.htbinh.finalproject.ui.result;
 
-public class KetQuaModel {
+public class ResultModel {
     private String name;
     private String tinchi;
     private String diemtbhk;
     private String diemtbhb;
     private String xeploai;
 
-    public KetQuaModel(String name, String tinchi, String diemtbhk, String diemtbhb, String xeploai) {
+    public ResultModel(String name, String tinchi, String diemtbhk, String diemtbhb, String xeploai) {
         this.name = name;
         this.tinchi = tinchi;
         this.diemtbhk = diemtbhk;

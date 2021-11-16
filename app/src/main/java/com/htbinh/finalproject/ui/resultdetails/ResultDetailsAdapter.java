@@ -1,4 +1,4 @@
-package com.htbinh.finalproject.Adapter;
+package com.htbinh.finalproject.ui.resultdetails;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,17 +9,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.htbinh.finalproject.Model.ChiTietKetQuaModel;
 import com.htbinh.finalproject.R;
 
 import java.util.List;
 
-public class ChiTietKetQuaAdapter extends BaseAdapter {
+public class ResultDetailsAdapter extends BaseAdapter {
     private Context context;
     private int layout;
-    private List<ChiTietKetQuaModel> chitietketquaList;
+    private List<ResultDetailsModel> chitietketquaList;
 
-    public ChiTietKetQuaAdapter(Context context, int layout, List<ChiTietKetQuaModel> chitietketquaList) {
+    public ResultDetailsAdapter(Context context, int layout, List<ResultDetailsModel> chitietketquaList) {
         this.context = context;
         this.layout = layout;
         this.chitietketquaList = chitietketquaList;
@@ -55,7 +54,7 @@ public class ChiTietKetQuaAdapter extends BaseAdapter {
         TextView txtdiemc = (TextView) view.findViewById(R.id.textviewdiemc);
 
         //gán giá trị
-        ChiTietKetQuaModel chitietketqua =chitietketquaList.get(i);
+        ResultDetailsModel chitietketqua =chitietketquaList.get(i);
 
         txttenhp.setText(chitietketqua.getTenHP());
         txtsotc.setText(chitietketqua.getSotc());

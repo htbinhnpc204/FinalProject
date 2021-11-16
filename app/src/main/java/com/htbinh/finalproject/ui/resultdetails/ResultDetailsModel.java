@@ -1,6 +1,6 @@
-package com.htbinh.finalproject.Model;
+package com.htbinh.finalproject.ui.resultdetails;
 
-public class ChiTietKetQuaModel {
+public class ResultDetailsModel {
     private String TenHP;
     private String MaHp;
     private String sotc;
@@ -10,7 +10,7 @@ public class ChiTietKetQuaModel {
     private String diemtk;
     private String diemchu;
 
-    public ChiTietKetQuaModel(String tenHP, String maHp, String sotc, String diemcc, String diemgk, String diemck, String diemtk, String diemchu) {
+    public ResultDetailsModel(String tenHP, String maHp, String sotc, String diemcc, String diemgk, String diemck, String diemtk, String diemchu) {
         TenHP = tenHP;
         MaHp = maHp;
         this.sotc = sotc;

@@ -1,4 +1,4 @@
-package com.htbinh.finalproject.Adapter;
+package com.htbinh.finalproject.ui.result;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,17 +9,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.htbinh.finalproject.Model.KetQuaModel;
 import com.htbinh.finalproject.R;
 
 import java.util.List;
 
-public class KetQuaAdapter extends BaseAdapter {
+public class ResultAdapter extends BaseAdapter {
     private Context context;
     private int layout;
-    private List<KetQuaModel> ketquaList;
+    private List<ResultModel> ketquaList;
 
-    public KetQuaAdapter(Context context, int layout, List<KetQuaModel> ketquaList) {
+    public ResultAdapter(Context context, int layout, List<ResultModel> ketquaList) {
         this.context = context;
         this.layout = layout;
         this.ketquaList = ketquaList;
@@ -51,7 +50,7 @@ public class KetQuaAdapter extends BaseAdapter {
         TextView txthocbong = (TextView)  view.findViewById(R.id.textViewhbong);
         TextView txtxeploai = (TextView) view.findViewById(R.id.textViewxl);
 
-        KetQuaModel ketqua = ketquaList.get(i);
+        ResultModel ketqua = ketquaList.get(i);
 
         txtname.setText((ketqua.getName()));
         txttinchi.setText((ketqua.getTinchi()));
