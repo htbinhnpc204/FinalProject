@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_schedule"
-        android:name="com.htbinh.finalproject.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.htbinh.finalproject.ui.tkb.WeekFragment"
+        android:label="Thời khóa biểu"
+        tools:layout="@layout/activity_tkb" />
 
     <fragment
         android:id="@+id/nav_examSchedule"
@@ -33,5 +33,7 @@
         android:name="com.htbinh.finalproject.ui.news.NewsFragment"
         android:label="Tin Tức"
         tools:layout="@layout/fragment_news" />
+
+
 
 </navigation>
