@@ -17,12 +17,12 @@ import com.htbinh.finalproject.databinding.FragmentGalleryBinding;
 
 public class GalleryFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    private com.htbinh.finalproject.ui.gallery.GalleryViewModel galleryViewModel;
     private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel = new GalleryViewModel();
+        galleryViewModel = new com.htbinh.finalproject.ui.gallery.GalleryViewModel();
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
