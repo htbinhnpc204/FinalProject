@@ -1,4 +1,4 @@
-package com.htbinh.finalproject.ui.tkb;
+package com.htbinh.finalproject.ui.schedule;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,20 +9,17 @@ import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import androidx.fragment.app.FragmentActivity;
-
 import com.htbinh.finalproject.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class TkbAdapter extends BaseAdapter {
+public class scheduleOfDayAdapter extends BaseAdapter {
 
     private Context context;
     private int layout;
-    private List<TkbModel> arraylist;
+    private List<scheduleModel> arraylist;
 
-    public TkbAdapter(Context context, int layout, List<TkbModel> arraylist) {
+    public scheduleOfDayAdapter(Context context, int layout, List<scheduleModel> arraylist) {
         this.context = context;
         this.layout = layout;
         this.arraylist = arraylist;
@@ -30,7 +27,7 @@ public class TkbAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return arraylist.size();
     }
 
     @Override
@@ -49,16 +46,14 @@ public class TkbAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 
         view = inflater.inflate(layout, null);
-        TkbModel LICHHOC = arraylist.get(i);
 
+        scheduleModel LICHHOC = arraylist.get(i);
         //ánh xạ
-        TextView ngay = view.findViewById(R.id.textview_ngay);
-        TextView monhoc = view.findViewById(R.id.textview_monhoc);
-        TextView tiet = view.findViewById(R.id.textview_tiet);
-        TextView gv = view.findViewById(R.id.textview_gv);
-        TextView phong = view.findViewById(R.id.textview_phong);
+        TextView monhoc = view.findViewById(R.id.textview_MonHoc);
+        TextView tiet = view.findViewById(R.id.textview_Tiet);
+        TextView gv = view.findViewById(R.id.textview_Gv);
+        TextView phong = view.findViewById(R.id.textview_Phong);
 
-        ngay.setText("Ngày: " + LICHHOC.getNgay());
         monhoc.setText("Môn: " + LICHHOC.getMonhoc());
         tiet.setText("Tiết: " + LICHHOC.getTiet());
         gv.setText("Giảng viên: " + LICHHOC.getGv());
@@ -68,9 +63,8 @@ public class TkbAdapter extends BaseAdapter {
         view.startAnimation(anim);
 
         return view;
-
     }
 
 
-
 }
+

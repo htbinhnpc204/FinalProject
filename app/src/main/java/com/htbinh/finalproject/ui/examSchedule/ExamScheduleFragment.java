@@ -32,6 +32,7 @@ public class ExamScheduleFragment extends Fragment {
         examScheduleModels.add(new ExamScheduleModel("01/07/2021","220NNCNC02","Ngoại ngữ chuyên ngành CNTT","Võ Trung Hùng","17h00-19h00","ONLINE"));
         examScheduleModels.add(new ExamScheduleModel("24/07/2021","220VKT01","Vẽ kỹ thuật","Nguyễn Đức Sỹ","13h00","ONLINE"));
         examScheduleModels.add(new ExamScheduleModel("24/07/2021","220VKT01","Vẽ kỹ thuật","Nguyễn Đức Sỹ","13h00","ONLINE"));
+
         final ListView listView = binding.listExSchedule;
         adapter = new ExamScheduleAdapter(container.getContext(),R.layout.item_exam_schedule,examScheduleModels);
         listView.setAdapter(adapter);

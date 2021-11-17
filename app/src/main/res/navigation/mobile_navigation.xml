@@ -13,12 +13,12 @@
 
     <fragment
         android:id="@+id/nav_schedule"
-        android:name="com.htbinh.finalproject.ui.tkb.WeekFragment"
+        android:name="com.htbinh.finalproject.ui.schedule.scheduleFragment"
         android:label="Thời khóa biểu"
-        tools:layout="@layout/activity_tkb" />
+        tools:layout="@layout/fragment_schedule" />
 
     <fragment
-        android:id="@+id/nav_examSchedule"
+        android:id="@+id/nav_slideshow"
         android:name="com.htbinh.finalproject.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
@@ -28,6 +28,7 @@
         android:name="com.htbinh.finalproject.ui.examSchedule.ExamScheduleFragment"
         android:label="Lịch Thi"
         tools:layout="@layout/fragment_exam_schedule" />
+
     <fragment
         android:id="@+id/nav_news"
         android:name="com.htbinh.finalproject.ui.news.NewsFragment"

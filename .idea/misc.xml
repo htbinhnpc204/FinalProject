@@ -14,9 +14,14 @@
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_exam_schedule.xml" value="0.24230072463768115" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_gallery.xml" value="0.5" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_news.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_schedule.xml" value="0.25" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_schedule_day.xml" value="0.25" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_schedule_week.xml" value="0.25" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_week.xml" value="0.16168478260869565" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_exam_schedule.xml" value="0.24230072463768115" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_news.xml" value="0.2" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_schedule_day.xml" value="0.25" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_schedule_week.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_tkb_day.xml" value="0.24230072463768115" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_tkb_week.xml" value="0.24230072463768115" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/nav_header_main.xml" value="0.33" />

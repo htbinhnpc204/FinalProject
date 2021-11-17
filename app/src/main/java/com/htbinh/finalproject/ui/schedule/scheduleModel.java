@@ -1,13 +1,13 @@
-package com.htbinh.finalproject.ui.tkb;
+package com.htbinh.finalproject.ui.schedule;
 
-public class TkbModel {
+public class scheduleModel {
     private String ngay;
     private String monhoc;
     private String tiet;
     private String gv;
     private String phong;
 
-    public TkbModel(String ngay, String monhoc, String tiet, String gv, String phong) {
+    public scheduleModel(String ngay, String monhoc, String tiet, String gv, String phong) {
         this.ngay = ngay;
         this.monhoc = monhoc;
         this.tiet = tiet;
@@ -55,4 +55,3 @@ public class TkbModel {
         this.phong = phong;
     }
 }
-

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.tkb.WeekFragment">
+    tools:context=".ui.schedule.WeekFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ListView
@@ -12,5 +12,6 @@
         android:layout_height="match_parent"
         android:divider="@android:color/transparent"
         android:dividerHeight="10dp"/>
+    android:dividerHeight="10dp"/>
 
 </FrameLayout>
