@@ -18,7 +18,7 @@
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_examSchedule"
+        android:id="@+id/nav_slideshow"
         android:name="com.htbinh.finalproject.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
@@ -28,10 +28,17 @@
         android:name="com.htbinh.finalproject.ui.examSchedule.ExamScheduleFragment"
         android:label="Lịch Thi"
         tools:layout="@layout/fragment_exam_schedule" />
+
     <fragment
         android:id="@+id/nav_news"
         android:name="com.htbinh.finalproject.ui.news.NewsFragment"
         android:label="Tin Tức"
         tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/nav_person"
+        android:name="com.htbinh.finalproject.ui.personInfor.PersonInforFragment"
+        android:label="Thông tin cá nhân"
+        tools:layout="@layout/fragment_person_infor" />
 
 </navigation>
