@@ -28,6 +28,7 @@
         android:name="com.htbinh.finalproject.ui.examSchedule.ExamScheduleFragment"
         android:label="Lịch Thi"
         tools:layout="@layout/fragment_exam_schedule" />
+
     <fragment
         android:id="@+id/nav_news"
         android:name="com.htbinh.finalproject.ui.news.NewsFragment"
@@ -38,5 +39,11 @@
         android:name="com.htbinh.finalproject.ui.notification.NotificationFragment"
         android:label="Thông báo từ giảng viên"
         tools:layout="@layout/fragment_notification" />
+
+    <fragment
+        android:id="@+id/nav_person"
+        android:name="com.htbinh.finalproject.ui.personInfor.PersonInforFragment"
+        android:label="Thông tin cá nhân"
+        tools:layout="@layout/fragment_person_infor" />
 
 </navigation>
