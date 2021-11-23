@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_schedule"
-        android:name="com.htbinh.finalproject.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.htbinh.finalproject.ui.schedule.scheduleFragment"
+        android:label="Thời khóa biểu"
+        tools:layout="@layout/fragment_schedule" />
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -45,5 +45,7 @@
         android:name="com.htbinh.finalproject.ui.personInfor.PersonInforFragment"
         android:label="Thông tin cá nhân"
         tools:layout="@layout/fragment_person_infor" />
+
+
 
 </navigation>
