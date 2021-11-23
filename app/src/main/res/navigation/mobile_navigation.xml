@@ -34,6 +34,11 @@
         android:name="com.htbinh.finalproject.ui.news.NewsFragment"
         android:label="Tin Tức"
         tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/nav_notification"
+        android:name="com.htbinh.finalproject.ui.notification.NotificationFragment"
+        android:label="Thông báo từ giảng viên"
+        tools:layout="@layout/fragment_notification" />
 
     <fragment
         android:id="@+id/nav_person"
