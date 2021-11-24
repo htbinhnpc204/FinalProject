@@ -14,9 +14,9 @@ import com.htbinh.finalproject.R;
 import java.util.List;
 
 public class ResultDetailsAdapter extends BaseAdapter {
-    private Context context;
-    private int layout;
-    private List<ResultDetailsModel> chitietketquaList;
+    private final Context context;
+    private final int layout;
+    private final List<ResultDetailsModel> chitietketquaList;
 
     public ResultDetailsAdapter(Context context, int layout, List<ResultDetailsModel> chitietketquaList) {
         this.context = context;

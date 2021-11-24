@@ -47,4 +47,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.squareup.picasso:picasso:2.6.0-SNAPSHOT'
 
+    // Image cycle view library
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
 }

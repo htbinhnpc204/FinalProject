@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:paddingVertical="8dp"
+        android:background="@drawable/ic_bg_card">
+
+        <TextView
+            android:id="@+id/ngaythi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NGÀY THI:"
+            android:textColor="@color/main_color"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvngaythi"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/ngaythi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toEndOf="@+id/ngaythi"
+            app:layout_constraintTop_toTopOf="@+id/ngaythi"/>
+
+        <TextView
+            android:id="@+id/tenlhp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="TÊN LỚP HP:"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/ngaythi"
+            app:layout_constraintTop_toBottomOf="@+id/ngaythi" />
+
+        <TextView
+            android:id="@+id/tvtenlhp"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingRight="5dp"
+            android:backgroundTint="@color/Transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/tenlhp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvngaythi"
+            app:layout_constraintTop_toTopOf="@+id/tenlhp"
+            app:layout_constraintHorizontal_bias="0.4"/>
+
+        <TextView
+            android:id="@+id/tenhp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TÊN HP: "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tenlhp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tenlhp"
+            app:layout_constraintTop_toBottomOf="@+id/tenlhp" />
+
+        <TextView
+            android:id="@+id/tvtenhp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:backgroundTint="@color/Transparent"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            app:layout_constraintBottom_toBottomOf="@+id/tenhp"
+            app:layout_constraintEnd_toEndOf="@+id/tvtenlhp"
+            app:layout_constraintStart_toStartOf="@+id/tvtenlhp"
+            app:layout_constraintTop_toTopOf="@+id/tenhp" />
+
+        <TextView
+            android:id="@+id/giangvien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GIẢNG VIÊN: "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tenhp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tenhp"
+            app:layout_constraintTop_toBottomOf="@+id/tenhp" />
+
+        <TextView
+            android:id="@+id/tvgiangvien"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingRight="5dp"
+            android:backgroundTint="@color/Transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/giangvien"
+            app:layout_constraintEnd_toEndOf="@+id/tvtenhp"
+            app:layout_constraintStart_toStartOf="@+id/tvtenhp"
+            app:layout_constraintTop_toTopOf="@+id/giangvien" />
+
+        <TextView
+            android:id="@+id/giothi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GIỜ THI: "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/giangvien"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/giangvien"
+            app:layout_constraintTop_toBottomOf="@+id/giangvien" />
+
+        <TextView
+            android:id="@+id/tvgiothi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingRight="5dp"
+            android:backgroundTint="@color/Transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/giothi"
+            app:layout_constraintEnd_toEndOf="@+id/tvgiangvien"
+            app:layout_constraintStart_toStartOf="@+id/tvgiangvien"
+            app:layout_constraintTop_toTopOf="@+id/giothi" />
+
+        <TextView
+            android:id="@+id/phongthi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PHÒNG THI:"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/giothi"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/giothi"
+            app:layout_constraintTop_toBottomOf="@+id/giothi" />
+
+        <TextView
+            android:id="@+id/tvphongthi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:paddingRight="5dp"
+            android:backgroundTint="@color/Transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/phongthi"
+            app:layout_constraintEnd_toEndOf="@+id/tvgiothi"
+            app:layout_constraintStart_toStartOf="@+id/tvgiothi"
+            app:layout_constraintTop_toTopOf="@+id/phongthi" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

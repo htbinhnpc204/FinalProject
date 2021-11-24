@@ -15,9 +15,9 @@ import java.util.List;
 
 public class NewsItemAdapter extends BaseAdapter {
 
-    private Context context;
-    private int layout;
-    private List<NewsModel> arraylist;
+    private final Context context;
+    private final int layout;
+    private final List<NewsModel> arraylist;
 
     public NewsItemAdapter(Context context, int layout, List<NewsModel> arraylist) {
         this.context = context;
@@ -43,7 +43,7 @@ public class NewsItemAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         view = inflater.inflate(layout, null);
 

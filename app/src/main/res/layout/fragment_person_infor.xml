@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/ic_bg_person">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgvAvt"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:contentDescription="Avatar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.067"/>
+
+    <ImageButton
+        android:id="@+id/imgbEditAvt"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/img_edit_avatar"
+        android:background="@color/Transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/imgvAvt"
+        app:layout_constraintEnd_toEndOf="@+id/imgvAvt"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imgvAvt"
+        app:layout_constraintTop_toTopOf="@+id/imgvAvt"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tvstdid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mã sinh viên:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgvAvt"
+        app:layout_constraintVertical_bias="0.066" />
+
+    <EditText
+        android:id="@+id/edtStdId"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:background="@color/light_grey"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:maxLines="1"
+        android:lines="1"
+        android:inputType="text"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="@+id/tvstdid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toEndOf="@+id/tvstdid"
+        app:layout_constraintTop_toTopOf="@+id/tvstdid"/>
+
+    <TextView
+        android:id="@+id/tvname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Họ và tên:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvstdid"
+        app:layout_constraintTop_toBottomOf="@+id/tvstdid" />
+
+    <EditText
+        android:id="@+id/edtName"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/light_grey"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:maxLines="1"
+        android:lines="1"
+        android:inputType="text"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="@+id/tvname"
+        app:layout_constraintEnd_toEndOf="@+id/edtStdId"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtStdId"
+        app:layout_constraintTop_toTopOf="@+id/tvname"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvctzcard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="CMND/CCCD:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvname"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvname"
+        app:layout_constraintTop_toBottomOf="@+id/tvname"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edtIdCard"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:lines="1"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/tvctzcard"
+        app:layout_constraintEnd_toEndOf="@+id/edtName"
+        app:layout_constraintStart_toStartOf="@+id/edtName"
+        app:layout_constraintTop_toTopOf="@+id/tvctzcard" />
+
+    <TextView
+        android:id="@+id/tvpob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Nơi sinh:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvctzcard"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvctzcard"
+        app:layout_constraintTop_toBottomOf="@+id/tvctzcard"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edtpob"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:lines="1"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/tvpob"
+        app:layout_constraintEnd_toEndOf="@+id/edtIdCard"
+        app:layout_constraintStart_toStartOf="@+id/edtIdCard"
+        app:layout_constraintTop_toTopOf="@+id/tvpob" />
+
+    <TextView
+        android:id="@+id/tvphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Điện thoại:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvpob"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvpob"
+        app:layout_constraintTop_toBottomOf="@+id/tvpob"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edtPhone"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:lines="1"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/tvphone"
+        app:layout_constraintEnd_toEndOf="@+id/edtpob"
+        app:layout_constraintStart_toStartOf="@+id/edtpob"
+        app:layout_constraintTop_toTopOf="@+id/tvphone" />
+
+    <TextView
+        android:id="@+id/tvemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Email:"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvphone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvphone"
+        app:layout_constraintTop_toBottomOf="@+id/tvphone"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:lines="1"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/tvemail"
+        app:layout_constraintEnd_toEndOf="@+id/edtPhone"
+        app:layout_constraintStart_toStartOf="@+id/edtPhone"
+        app:layout_constraintTop_toTopOf="@+id/tvemail" />
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="250dp"
+        android:layout_height="36dp"
+        android:layout_marginVertical="16dp"
+        android:background="@drawable/ic_btn_bg"
+        android:onClick="doUpdate"
+        android:text="Cập nhật thông tin"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edtEmail"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="@+id/tvemail"
+        app:layout_constraintTop_toBottomOf="@+id/tvemail"
+        app:layout_constraintVertical_bias="0.289"
+        app:layout_constraintWidth_percent=".4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

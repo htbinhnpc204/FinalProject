@@ -6,16 +6,16 @@
     app:startDestination="@+id/nav_news">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.htbinh.finalproject.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
         android:id="@+id/nav_schedule"
         android:name="com.htbinh.finalproject.ui.schedule.scheduleFragment"
         android:label="Thời khóa biểu"
         tools:layout="@layout/fragment_schedule" />
+
+    <fragment
+        android:id="@+id/nav_examSchedule"
+        android:name="com.htbinh.finalproject.ui.examSchedule.ExamScheduleFragment"
+        android:label="Lịch thi"
+        tools:layout="@layout/fragment_exam_schedule" />
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -39,4 +39,10 @@
         android:name="com.htbinh.finalproject.ui.resultdetails.ResultDetailsFragment"
         android:label="Chi tiết kết quả học tập"
         tools:layout="@layout/fragment_resultdetails" />
+
+    <fragment
+        android:id="@+id/nav_person"
+        android:name="com.htbinh.finalproject.ui.personInfor.PersonInforFragment"
+        android:label="Thông tin cá nhân"
+        tools:layout="@layout/fragment_person_infor" />
 </navigation>
