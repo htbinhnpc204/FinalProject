@@ -47,7 +47,7 @@ public class ResultFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle sendBundle = new Bundle();
-                sendBundle.putString("model", resultModelArrayList.get(position).getName());
+                sendBundle.putString("name", resultModelArrayList.get(position).getName());
                 Navigation.findNavController(view).navigate(R.id.nav_resultdetails, sendBundle);
             }
         });

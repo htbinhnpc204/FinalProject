@@ -31,6 +31,11 @@
                     android:id="@+id/nav_notify"
                     android:icon="@drawable/ic_menu_slideshow"
                     android:title="Thông báo" />
+
+                <item
+                    android:visible="false"
+                    android:id="@+id/nav_resultdetails"
+                    android:title="Chi tiết kết quả học tập"/>
             </menu>
 
         </item>

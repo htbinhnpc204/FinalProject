@@ -1,6 +1,5 @@
 package com.htbinh.finalproject.ui.resultdetails;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,14 +8,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.htbinh.finalproject.R;
-import com.htbinh.finalproject.databinding.FragmentResultBinding;
 import com.htbinh.finalproject.databinding.FragmentResultdetailsBinding;
-import com.htbinh.finalproject.ui.result.ResultAdapter;
-import com.htbinh.finalproject.ui.result.ResultModel;
 
 import java.util.ArrayList;
 
@@ -35,7 +30,7 @@ public class ResultDetailsFragment extends Fragment {
         final ListView listView = binding.resultdetailsList;
 
         TextView tv = binding.txtHocKy;
-        tv.setText(tv.getText() + getArguments().getString("model"));
+        tv.setText(tv.getText() + getArguments().getString("name"));
 
         resultDetailsModelArrayList = new ArrayList<>();
         resultDetailsModelArrayList .add(new ResultDetailsModel("Kinh tế chính trị 500231", "500231", "8,0",
