@@ -1,4 +1,4 @@
-package com.htbinh.finalproject.ui.schedule;
+package com.htbinh.finalproject.ui.examSchedule;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,13 +13,13 @@ import com.htbinh.finalproject.R;
 
 import java.util.List;
 
-public class scheduleOfDayAdapter extends BaseAdapter {
+public class ExamScheduleAdapter extends BaseAdapter {
 
     private final Context context;
     private final int layout;
-    private final List<scheduleModel> arraylist;
+    private final List<ExamScheduleModel> arraylist;
 
-    public scheduleOfDayAdapter(Context context, int layout, List<scheduleModel> arraylist) {
+    public ExamScheduleAdapter(Context context, int layout, List<ExamScheduleModel> arraylist) {
         this.context = context;
         this.layout = layout;
         this.arraylist = arraylist;
@@ -47,24 +47,26 @@ public class scheduleOfDayAdapter extends BaseAdapter {
 
         view = inflater.inflate(layout, null);
 
-        scheduleModel LICHHOC = arraylist.get(i);
-        //ánh xạ
-        TextView monhoc = view.findViewById(R.id.textview_MonHoc);
-        TextView tiet = view.findViewById(R.id.textview_Tiet);
-        TextView gv = view.findViewById(R.id.textview_Gv);
-        TextView phong = view.findViewById(R.id.textview_Phong);
+        ExamScheduleModel lichthi = arraylist.get(i);
 
-        monhoc.setText("Môn: " + LICHHOC.getMonhoc());
-        tiet.setText("Tiết: " + LICHHOC.getTiet());
-        gv.setText("Giảng viên: " + LICHHOC.getGv());
-        phong.setText("Phòng: " + LICHHOC.getPhong());
+        //ánh xạ
+        TextView ngaythi = view.findViewById(R.id.tvngaythi);
+        TextView tenlhp = view.findViewById(R.id.tvtenlhp);
+        TextView tenhp = view.findViewById(R.id.tvtenhp);
+        TextView giangvien = view.findViewById(R.id.tvgiangvien);
+        TextView giothi = view.findViewById(R.id.tvgiothi);
+        TextView phongthi = view.findViewById(R.id.tvphongthi);
+
+        ngaythi.setText(lichthi.getNgaythi());
+        tenlhp.setText(lichthi.getTenlhp() );
+        tenhp.setText(lichthi.getTenhp());
+        giangvien.setText(lichthi.getGiangvien());
+        giothi.setText(lichthi.getGiothi());
+        phongthi.setText(lichthi.getPhongthi());
 
         Animation anim = AnimationUtils.loadAnimation(context, R.anim.left_slide);
         view.startAnimation(anim);
 
         return view;
     }
-
-
 }
-

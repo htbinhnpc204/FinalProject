@@ -28,10 +28,10 @@ import java.util.List;
 
 public class scheduleOfWeekAdapter extends BaseAdapter {
 
-    private Context context;
-    private int layout;
-    private List<scheduleModel> arraylist;
-    private  List<String> listThu;
+    private final Context context;
+    private final int layout;
+    private final List<scheduleModel> arraylist;
+    private final List<String> listThu;
 
     public scheduleOfWeekAdapter(Context context, int layout, List<scheduleModel> arraylist, List<String> listThu) {
         this.context = context;
@@ -59,7 +59,7 @@ public class scheduleOfWeekAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         //LastUPDATE
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         view = inflater.inflate(layout, null);
 

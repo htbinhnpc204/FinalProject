@@ -14,9 +14,9 @@ import com.htbinh.finalproject.R;
 import java.util.List;
 
 public class ResultAdapter extends BaseAdapter {
-    private Context context;
-    private int layout;
-    private List<ResultModel> ketquaList;
+    private final Context context;
+    private final int layout;
+    private final List<ResultModel> ketquaList;
 
     public ResultAdapter(Context context, int layout, List<ResultModel> ketquaList) {
         this.context = context;
