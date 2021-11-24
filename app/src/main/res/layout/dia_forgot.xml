@@ -11,13 +11,17 @@
         android:layout_height="wrap_content">
 
         <ImageButton
+            android:scaleType="fitXY"
+            android:scaleX="5"
+            android:scaleY="3"
+            android:backgroundTint="@android:color/transparent"
             android:id="@+id/btnClose"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:onClick="Close"
             android:src="@drawable/ico_close_x"
             android:layout_marginTop="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="20dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

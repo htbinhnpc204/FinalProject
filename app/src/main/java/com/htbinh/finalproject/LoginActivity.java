@@ -2,6 +2,9 @@ package com.htbinh.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -32,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     LinearLayout buttons;
 
     Animation topAnimation;
+    private boolean doubleBackToExitPressedOnce;
 
     private void Mapping(){
         tk = findViewById(R.id.edUser);
@@ -126,5 +130,24 @@ public class LoginActivity extends AppCompatActivity {
 
     public void doLogin(View v){
         goToHome();
+    }
+
+    //exit by double tap
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(getApplicationContext(), "Swipe again to exit!", Toast.LENGTH_SHORT).show();
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 }
