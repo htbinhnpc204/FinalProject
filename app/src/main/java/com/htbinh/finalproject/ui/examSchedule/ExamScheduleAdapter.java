@@ -50,12 +50,12 @@ public class ExamScheduleAdapter extends BaseAdapter {
         ExamScheduleModel lichthi = arraylist.get(i);
 
         //ánh xạ
-        TextView ngaythi = view.findViewById(R.id.tvngaythi);
-        TextView tenlhp = view.findViewById(R.id.tvtenlhp);
-        TextView tenhp = view.findViewById(R.id.tvtenhp);
-        TextView giangvien = view.findViewById(R.id.tvgiangvien);
-        TextView giothi = view.findViewById(R.id.tvgiothi);
-        TextView phongthi = view.findViewById(R.id.tvphongthi);
+        TextView ngaythi = view.findViewById(R.id.edtngaythi);
+        TextView tenlhp = view.findViewById(R.id.edttenlhp);
+        TextView tenhp = view.findViewById(R.id.edttenhp);
+        TextView giangvien = view.findViewById(R.id.edtgiangvien);
+        TextView giothi = view.findViewById(R.id.edtgiothi);
+        TextView phongthi = view.findViewById(R.id.edtphongthi);
 
         ngaythi.setText(lichthi.getNgaythi());
         tenlhp.setText(lichthi.getTenlhp() );

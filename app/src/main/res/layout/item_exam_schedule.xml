@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.01">
 
         <TextView
-            android:id="@+id/ngaythi"
+            android:id="@+id/tvngaythi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NGÀY THI: "
@@ -26,14 +26,14 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
-            app:layout_constraintBottom_toTopOf="@id/tenlhp"
+            app:layout_constraintBottom_toTopOf="@id/tvtenlhp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.048"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
-            android:id="@+id/tvngaythi"
+        <EditText
+            android:id="@+id/edtngaythi"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:paddingRight="10dp"
@@ -41,136 +41,136 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:backgroundTint="@color/Transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/ngaythi"
+            app:layout_constraintBottom_toBottomOf="@+id/tvngaythi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.6"
-            app:layout_constraintStart_toEndOf="@+id/ngaythi"
-            app:layout_constraintTop_toTopOf="@+id/ngaythi"/>
+            app:layout_constraintStart_toEndOf="@+id/tvngaythi"
+            app:layout_constraintTop_toTopOf="@+id/tvngaythi"/>
 
         <TextView
-            android:id="@+id/tenlhp"
+            android:id="@+id/tvtenlhp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:text="TÊN LỚP HP: "
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/ngaythi"
-            app:layout_constraintTop_toBottomOf="@+id/ngaythi" />
+            app:layout_constraintStart_toStartOf="@+id/tvngaythi"
+            app:layout_constraintTop_toBottomOf="@+id/tvngaythi" />
 
-        <TextView
-            android:id="@+id/tvtenlhp"
+        <EditText
+            android:id="@+id/edttenlhp"
             android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:paddingRight="5dp"
             android:backgroundTint="@color/Transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/tenlhp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvtenlhp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tvngaythi"
-            app:layout_constraintTop_toTopOf="@+id/tenlhp"
+            app:layout_constraintStart_toStartOf="@+id/edtngaythi"
+            app:layout_constraintTop_toTopOf="@+id/tvtenlhp"
             app:layout_constraintHorizontal_bias="0.4"/>
 
         <TextView
-            android:id="@+id/tenhp"
+            android:id="@+id/tvtenhp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TÊN HP: "
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/tenlhp"
+            app:layout_constraintEnd_toEndOf="@+id/tvtenlhp"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tenlhp"
-            app:layout_constraintTop_toBottomOf="@+id/tenlhp" />
+            app:layout_constraintStart_toStartOf="@+id/tvtenlhp"
+            app:layout_constraintTop_toBottomOf="@+id/tvtenlhp" />
 
-        <TextView
-            android:id="@+id/tvtenhp"
+        <EditText
+            android:id="@+id/edttenhp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:paddingRight="5dp"
             android:backgroundTint="@color/Transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/tenhp"
-            app:layout_constraintEnd_toEndOf="@+id/tvtenlhp"
-            app:layout_constraintStart_toStartOf="@+id/tvtenlhp"
-            app:layout_constraintTop_toTopOf="@+id/tenhp" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvtenhp"
+            app:layout_constraintEnd_toEndOf="@+id/edttenlhp"
+            app:layout_constraintStart_toStartOf="@+id/edttenlhp"
+            app:layout_constraintTop_toTopOf="@+id/tvtenhp" />
 
         <TextView
-            android:id="@+id/giangvien"
+            android:id="@+id/tvgiangvien"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="GIẢNG VIÊN: "
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/tenhp"
+            app:layout_constraintEnd_toEndOf="@+id/tvtenhp"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tenhp"
-            app:layout_constraintTop_toBottomOf="@+id/tenhp" />
+            app:layout_constraintStart_toStartOf="@+id/tvtenhp"
+            app:layout_constraintTop_toBottomOf="@+id/tvtenhp" />
 
-        <TextView
-            android:id="@+id/tvgiangvien"
+        <EditText
+            android:id="@+id/edtgiangvien"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:paddingRight="5dp"
             android:backgroundTint="@color/Transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/giangvien"
-            app:layout_constraintEnd_toEndOf="@+id/tvtenhp"
-            app:layout_constraintStart_toStartOf="@+id/tvtenhp"
-            app:layout_constraintTop_toTopOf="@+id/giangvien" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvgiangvien"
+            app:layout_constraintEnd_toEndOf="@+id/edttenhp"
+            app:layout_constraintStart_toStartOf="@+id/edttenhp"
+            app:layout_constraintTop_toTopOf="@+id/tvgiangvien" />
 
         <TextView
-            android:id="@+id/giothi"
+            android:id="@+id/tvgiothi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="GIỜ THI: "
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/giangvien"
+            app:layout_constraintEnd_toEndOf="@+id/tvgiangvien"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/giangvien"
-            app:layout_constraintTop_toBottomOf="@+id/giangvien" />
+            app:layout_constraintStart_toStartOf="@+id/tvgiangvien"
+            app:layout_constraintTop_toBottomOf="@+id/tvgiangvien" />
 
-        <TextView
-            android:id="@+id/tvgiothi"
+        <EditText
+            android:id="@+id/edtgiothi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:paddingRight="5dp"
             android:backgroundTint="@color/Transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/giothi"
-            app:layout_constraintEnd_toEndOf="@+id/tvgiangvien"
-            app:layout_constraintStart_toStartOf="@+id/tvgiangvien"
-            app:layout_constraintTop_toTopOf="@+id/giothi" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvgiothi"
+            app:layout_constraintEnd_toEndOf="@+id/edtgiangvien"
+            app:layout_constraintStart_toStartOf="@+id/edtgiangvien"
+            app:layout_constraintTop_toTopOf="@+id/tvgiothi" />
 
         <TextView
-            android:id="@+id/phongthi"
+            android:id="@+id/tvphongthi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PHÒNG THI:"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/giothi"
+            app:layout_constraintEnd_toEndOf="@+id/tvgiothi"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/giothi"
-            app:layout_constraintTop_toBottomOf="@+id/giothi" />
+            app:layout_constraintStart_toStartOf="@+id/tvgiothi"
+            app:layout_constraintTop_toBottomOf="@+id/tvgiothi" />
 
-        <TextView
-            android:id="@+id/tvphongthi"
+        <EditText
+            android:id="@+id/edtphongthi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:paddingRight="5dp"
             android:backgroundTint="@color/Transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/phongthi"
-            app:layout_constraintEnd_toEndOf="@+id/tvgiothi"
-            app:layout_constraintStart_toStartOf="@+id/tvgiothi"
-            app:layout_constraintTop_toTopOf="@+id/phongthi" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvphongthi"
+            app:layout_constraintEnd_toEndOf="@+id/edtgiothi"
+            app:layout_constraintStart_toStartOf="@+id/edtgiothi"
+            app:layout_constraintTop_toTopOf="@+id/tvphongthi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
