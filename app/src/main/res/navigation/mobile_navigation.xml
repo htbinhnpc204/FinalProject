@@ -18,7 +18,7 @@
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_examSchedule"
         android:name="com.htbinh.finalproject.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
@@ -33,10 +33,5 @@
         android:name="com.htbinh.finalproject.ui.news.NewsFragment"
         android:label="Tin Tức"
         tools:layout="@layout/fragment_news" />
-    <fragment
-        android:id="@+id/nav_notification"
-        android:name="com.htbinh.finalproject.ui.notification.NotificationFragment"
-        android:label="Thông báo từ giảng viên"
-        tools:layout="@layout/fragment_notification" />
 
 </navigation>
