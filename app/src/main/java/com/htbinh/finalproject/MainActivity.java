@@ -1,6 +1,9 @@
 package com.htbinh.finalproject;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
@@ -55,5 +58,15 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void doLogout(MenuItem item) {
+        SharedPreferences sharedPreferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("remember", "false");
+        editor.apply();
+        Intent in = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(in);
+        finish();
     }
 }
