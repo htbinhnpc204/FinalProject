@@ -24,14 +24,8 @@
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
-        android:id="@+id/nav_examSchedule"
-        android:name="com.htbinh.finalproject.ui.examSchedule.ExamScheduleFragment"
-        android:label="Lịch Thi"
-        tools:layout="@layout/fragment_exam_schedule" />
-    <fragment
         android:id="@+id/nav_news"
         android:name="com.htbinh.finalproject.ui.news.NewsFragment"
         android:label="Tin Tức"
         tools:layout="@layout/fragment_news" />
-
 </navigation>

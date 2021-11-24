@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <array name="preloaded_fonts" translatable="false" tools:ignore="MissingDefaultResource">
-        <item>@font/arbutus</item>
-        <item>@font/purple_purse</item>
-        <item>@font/unna</item>
-        <item>@font/yatra_one</item>
-    </array>
-</resources>
