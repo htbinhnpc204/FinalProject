@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_exam_schedule" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.htbinh.finalproject.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_notify"
+        android:name="com.htbinh.finalproject.ui.notification.NotificationFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 
@@ -39,6 +39,19 @@
         android:name="com.htbinh.finalproject.ui.resultdetails.ResultDetailsFragment"
         android:label="Chi tiết kết quả học tập"
         tools:layout="@layout/fragment_resultdetails" />
+
+    <fragment
+        android:id="@+id/nav_notification"
+        android:name="com.htbinh.finalproject.ui.notification.NotificationFragment"
+        android:label="Thông báo từ giảng viên"
+        tools:layout="@layout/fragment_notification" />
+
+    <fragment
+        android:id="@+id/nav_tuitionfee"
+        android:name="com.htbinh.finalproject.ui.tuitionfee.TuitionfeeFragment"
+        android:label="Thông tin học phí"
+        tools:layout="@layout/fragment_tuitionfee" />
+
 
     <fragment
         android:id="@+id/nav_person"
