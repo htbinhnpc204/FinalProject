@@ -12,24 +12,24 @@
             <menu>
                 <item
                     android:id="@+id/nav_news"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ico_news"
                     android:title="Trang tin tức" />
                 <item
                     android:id="@+id/nav_schedule"
-                    android:icon="@drawable/ic_menu_gallery"
+                    android:icon="@drawable/ico_schedule"
                     android:title="Lịch học" />
                 <item
                     android:id="@+id/nav_examSchedule"
-                    android:icon="@drawable/ic_menu_slideshow"
+                    android:icon="@drawable/ico_exam"
                     android:title="Lịch thi" />
                 <item
                     android:id="@+id/nav_result"
-                    android:icon="@drawable/ic_menu_slideshow"
+                    android:icon="@drawable/ico_grade"
                     android:title="Kết quả học tập"
                     />
                 <item
                     android:id="@+id/nav_notify"
-                    android:icon="@drawable/ic_menu_slideshow"
+                    android:icon="@drawable/ico_notify"
                     android:title="Thông báo" />
 
                 <item
@@ -39,7 +39,7 @@
                     android:title="Thông báo từ giảng viên" />
                 <item
                     android:id="@+id/nav_tuitionfee"
-                    android:icon="@drawable/ic_menu_slideshow"
+                    android:icon="@drawable/ico_fee"
                     android:title="Thông tin học phí" />
             </menu>
 
@@ -55,11 +55,12 @@
             <menu>
                 <item
                     android:id="@+id/nav_person"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ico_info"
                     android:title="Thông tin cá nhân" />
                 <item
                     android:id="@+id/nav_logout"
-                    android:icon="@drawable/ic_menu_gallery"
+                    android:icon="@drawable/ico_logout"
+                    android:onClick="doLogout"
                     android:title="Đăng xuất" />
             </menu>
 

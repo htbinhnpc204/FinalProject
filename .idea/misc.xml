@@ -3,37 +3,44 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/FinalProject/app/src/main/res/drawable/ic_bg_person.xml" value="0.1125" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/drawable/ic_edit_text.xml" value="0.1125" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/drawable/side_nav_bar.xml" value="0.1125" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/activity_splash_screen.xml" value="0.15" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/app_bar_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/content_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/dia_forgot.xml" value="0.30434782608695654" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_gallery.xml" value="0.5" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_news.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_person_infor.xml" value="0.1" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_news.xml" value="0.2" />
-        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/nav_header_main.xml" value="0.33" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/nav_header_main.xml" value="0.5" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/menu/main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/drawable-v24/ic_bg_card.xml" value="0.18796296296296297" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/drawable/ic_bg_avt.xml" value="0.1962962962962963" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/drawable/ic_bg_person.xml" value="0.1962962962962963" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/drawable/ic_btn_bg.xml" value="0.1962962962962963" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/font/arbutus.xml" value="0.18796296296296297" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/font/unna.xml" value="0.18796296296296297" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/activity_exam_schedule.xml" value="0.176" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.14537037037037037" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/content_main.xml" value="0.14537037037037037" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_exam_schedule.xml" value="0.25" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.14537037037037037" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_news.xml" value="0.25" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_person_infor.xml" value="0.2" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_schedule.xml" value="0.12708333333333333" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/item_exam_schedule.xml" value="0.4" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/nav_header_main.xml" value="0.1537037037037037" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/menu/activity_main_drawer.xml" value="0.264" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/menu/main.xml" value="0.14537037037037037" />
-        <entry key="..\:/Notification/FinalProject/app/src/main/res/layout/fragment_notification.xml" value="0.259375" />
-        <entry key="..\:/Notification/FinalProject/app/src/main/res/layout/item_notification.xml" value="0.259375" />
-        <entry key="..\:/Notification/FinalProject/app/src/main/res/menu/activity_main_drawer.xml" value="0.259375" />
-        <entry key="..\:/Notification/FinalProject/app/src/main/res/menu/main.xml" value="0.259375" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/drawable/ic_bg_card.xml" value="0.2703125" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/drawable/ic_bg_tt.xml" value="0.2703125" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2703125" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/activity_chitietketqua.xml" value="0.20989583333333334" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/activity_ketqua.xml" value="0.23177083333333334" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/activity_tintuc.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/app_bar_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/fragment_gallery.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/fragment_result.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/fragment_resultdetails.xml" value="0.72" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/fragment_slideshow.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/item_chitietketqua.xml" value="0.20989583333333334" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/item_ketqua.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/item_tintuc.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/layout/nav_header_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/FinalProject/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Chorme/StudentInfor/TEst/FinalProject/app/src/main/res/menu/activity_main_drawer.xml" value="0.18125" />
+        <entry key="..\:/Chorme/StudentInfor/TEst/FinalProject/app/src/main/res/menu/main.xml" value="0.18125" />
       </map>
     </option>
   </component>
