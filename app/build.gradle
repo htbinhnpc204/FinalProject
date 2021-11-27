@@ -49,5 +49,9 @@ dependencies {
 
     // Image cycle view library
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+    //cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
+    //gif
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.22'
 
 }
