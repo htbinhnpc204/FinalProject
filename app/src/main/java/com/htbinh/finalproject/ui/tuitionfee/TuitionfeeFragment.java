@@ -72,12 +72,12 @@ public class TuitionfeeFragment extends Fragment {
         binding = FragmentTuitionfeeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 1","- Năm 2020-2021","21","6,862,800","676,000","7,538,800 đồng "));
-        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 2","- Năm 2020-2021","25","6,862,800","676,000","7,538,800 đồng "));
-        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 3","- Năm 2021-2022","22","6,862,800","676,000","7,538,800 đồng "));
-        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 4","- Năm 2021-2022","23","6,862,800","676,000","7,538,800 đồng "));
-        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 5","- Năm 2023-2024","24","6,862,800","676,000","7,538,800 đồng "));
-        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 6","- Năm 2023-2024","25","6,862,800","676,000","7,538,800 đồng "));
+        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 1","- Năm 2020-2021","21","6,862,800","676,000","576,000 ","7,538,800 đồng "));
+        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 2","- Năm 2020-2021","25","6,862,800","676,000","576,000 ","7,538,800 đồng "));
+        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 3","- Năm 2021-2022","22","6,862,800","676,000","376,000 ","7,538,800 đồng "));
+        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 4","- Năm 2021-2022","23","6,862,800","676,000","676,000 ","7,538,800 đồng "));
+        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 5","- Năm 2023-2024","24","6,862,800","676,000","276,000 ","7,538,800 đồng "));
+        tuitionfeeModels.add(new TuitionfeeModel("Học kì: 6","- Năm 2023-2024","25","6,862,800","676,000","4676,000 ","7,538,800 đồng "));
 
         final ListView listView= binding.listTuitionfee;
         adapter = new TuitionfeeAdapter(container.getContext(), R.layout.item_tuitionfee,tuitionfeeModels);
