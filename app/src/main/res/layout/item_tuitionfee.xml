@@ -134,6 +134,19 @@
             app:layout_constraintTop_toBottomOf="@+id/textviewhpphainop" />
 
         <TextView
+            android:id="@+id/textviewsodukytruoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Số dư kì trước: "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/textviewsonokytruoc"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textviewsonokytruoc"
+            app:layout_constraintTop_toBottomOf="@+id/textviewsonokytruoc" />
+
+        <TextView
             android:id="@+id/textviewsonkt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,30 +160,43 @@
             app:layout_constraintTop_toBottomOf="@+id/textviewhppn" />
 
         <TextView
+            android:id="@+id/textviewsodkt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="668,200"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/textviewsonkt"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textviewsonkt"
+            app:layout_constraintTop_toBottomOf="@+id/textviewsonkt" />
+
+        <TextView
             android:id="@+id/textviewtongtienphainop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="116dp"
+            android:layout_marginTop="10dp"
             android:text="Tổng: "
             android:textColor="@color/main_color"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textviewsodukytruoc" />
 
         <TextView
             android:id="@+id/textviewtongtienpn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
             android:text="7,538,800 đồng"
             android:textColor="@color/main_color"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/textviewtongtienphainop"
-            app:layout_constraintTop_toBottomOf="@+id/textviewsonokytruoc" />
+            app:layout_constraintTop_toBottomOf="@+id/textviewsodukytruoc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
