@@ -27,18 +27,21 @@
         android:id="@+id/nav_news"
         android:name="com.htbinh.finalproject.ui.news.NewsFragment"
         android:label="Tin Tức"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+    </fragment>
 
     <fragment
         android:id="@+id/nav_result"
         android:name="com.htbinh.finalproject.ui.result.ResultFragment"
         android:label="Kết quả học tập"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/fragment_result" >
+    </fragment>
     <fragment
         android:id="@+id/nav_resultdetails"
-        android:name="com.htbinh.finalproject.ui.resultdetails.ResultDetailsFragment"
+        android:name="com.htbinh.finalproject.ui.resuldetails.ResultDetailsFragment"
         android:label="Chi tiết kết quả học tập"
-        tools:layout="@layout/fragment_resultdetails" />
+        tools:layout="@layout/fragment_resultdetails" >
+    </fragment>
 
     <fragment
         android:id="@+id/nav_notification"

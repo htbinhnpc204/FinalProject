@@ -54,7 +54,7 @@ public class ResultDetailsAdapter extends BaseAdapter {
         TextView txtdiemc = (TextView) view.findViewById(R.id.textviewdiemc);
 
         //gán giá trị
-        ResultDetailsModel chitietketqua =chitietketquaList.get(i);
+        ResultDetailsModel chitietketqua = chitietketquaList.get(i);
 
         txttenhp.setText(chitietketqua.getTenHP());
         txtsotc.setText(chitietketqua.getSotc());

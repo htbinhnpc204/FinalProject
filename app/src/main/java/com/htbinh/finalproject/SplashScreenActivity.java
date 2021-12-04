@@ -3,14 +3,14 @@ package com.htbinh.finalproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.htbinh.finalproject.login.LoginActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

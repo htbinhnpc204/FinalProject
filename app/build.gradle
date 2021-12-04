@@ -53,5 +53,6 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     //gif
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.22'
-
+    //volley for api request
+    implementation 'com.android.volley:volley:1.2.1'
 }

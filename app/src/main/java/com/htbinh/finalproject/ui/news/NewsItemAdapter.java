@@ -54,7 +54,7 @@ public class NewsItemAdapter extends BaseAdapter {
 
         NewsModel item = arraylist.get(i);
 
-        Picasso.get().load("https://ute.udn.vn/Upload/TinTuc/khcnh3141121035349.jpg").resize(150, 150).
+        Picasso.get().load(item.getImgLink()).resize(150, 150).
                 centerCrop().into(img);
         title.setText(item.getTitle());
         date.setText(item.getDate());
