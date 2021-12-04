@@ -5,12 +5,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.htbinh.finalproject.R;
+import com.htbinh.finalproject.SessionServices;
 import com.htbinh.finalproject.databinding.FragmentNewsBinding;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -21,15 +33,15 @@ public class NewsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        newsModel = new ArrayList<>();
-
         binding = FragmentNewsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        newsModel.add(new NewsModel("Bản tin thời sự DaNang TV tối ngày 12/11/2021 \"ĐẨY MẠNH CHUYỂN ĐỔI SỐ TRONG CÁC TRƯỜNG ĐẠI HỌC\"", "Bản tin thời sự DaNang TV tối ngày 12/11/2021 \"ĐẨY MẠNH CHUYỂN ĐỔI SỐ TRONG CÁC TRƯỜNG ĐẠI HỌC\"", "15 tháng 11 2021", "https://ute.udn.vn/Upload/TinTuc/hinhbia151121103153.JPG", "../../TinTuc/3635/1/Ban-tin-thoi-su-DaNang-TV-toi-ngay-12112021-DAY-MANH-CHUYEN-DOI-SO-TRONG-CAC-TRUONG-DAI-HOC.aspx"));
-        newsModel.add(new NewsModel("Bản tin thời sự DaNang TV tối ngày 12/11/2021 \"ĐẨY MẠNH CHUYỂN ĐỔI SỐ TRONG CÁC TRƯỜNG ĐẠI HỌC\"", "Bản tin thời sự DaNang TV tối ngày 12/11/2021 \"ĐẨY MẠNH CHUYỂN ĐỔI SỐ TRONG CÁC TRƯỜNG ĐẠI HỌC\"", "15 tháng 11 2021", "https://ute.udn.vn/Upload/TinTuc/hinhbia151121103153.JPG", "../../TinTuc/3635/1/Ban-tin-thoi-su-DaNang-TV-toi-ngay-12112021-DAY-MANH-CHUYEN-DOI-SO-TRONG-CAC-TRUONG-DAI-HOC.aspx"));
-        newsModel.add(new NewsModel("Bản tin thời sự DaNang TV tối ngày 12/11/2021 \"ĐẨY MẠNH CHUYỂN ĐỔI SỐ TRONG CÁC TRƯỜNG ĐẠI HỌC\"", "Bản tin thời sự DaNang TV tối ngày 12/11/2021 \"ĐẨY MẠNH CHUYỂN ĐỔI SỐ TRONG CÁC TRƯỜNG ĐẠI HỌC\"", "15 tháng 11 2021", "https://ute.udn.vn/Upload/TinTuc/hinhbia151121103153.JPG", "../../TinTuc/3635/1/Ban-tin-thoi-su-DaNang-TV-toi-ngay-12112021-DAY-MANH-CHUYEN-DOI-SO-TRONG-CAC-TRUONG-DAI-HOC.aspx"));
-        newsModel.add(new NewsModel("Bản tin thời sự DaNang TV tối ngày 12/11/2021 \"ĐẨY MẠNH CHUYỂN ĐỔI SỐ TRONG CÁC TRƯỜNG ĐẠI HỌC\"", "Bản tin thời sự DaNang TV tối ngày 12/11/2021 \"ĐẨY MẠNH CHUYỂN ĐỔI SỐ TRONG CÁC TRƯỜNG ĐẠI HỌC\"", "15 tháng 11 2021", "https://ute.udn.vn/Upload/TinTuc/hinhbia151121103153.JPG", "../../TinTuc/3635/1/Ban-tin-thoi-su-DaNang-TV-toi-ngay-12112021-DAY-MANH-CHUYEN-DOI-SO-TRONG-CAC-TRUONG-DAI-HOC.aspx"));
+        if(SessionServices.getListNews() != null){
+            newsModel = SessionServices.getListNews();
+        }
+        else{
+            newsModel = new ArrayList<>();
+            Toast.makeText(getContext(), "List is null", Toast.LENGTH_SHORT).show();
+        }
         final ListView listView = binding.listNews;
         NewsItemAdapter adapter = new NewsItemAdapter(container.getContext(), R.layout.item_news, newsModel);
         listView.setAdapter(adapter);

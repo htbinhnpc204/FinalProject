@@ -1,6 +1,10 @@
 package com.htbinh.finalproject.ui.news;
 
-public class NewsModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+
+public class NewsModel implements Parcelable {
     private String title, description, date, imgLink, detailsLink;
 
     public NewsModel(String title, String description, String date, String imgLink, String detailsLink) {
@@ -10,6 +14,26 @@ public class NewsModel {
         this.imgLink = imgLink;
         this.detailsLink = detailsLink;
     }
+
+    protected NewsModel(Parcel in) {
+        title = in.readString();
+        description = in.readString();
+        date = in.readString();
+        imgLink = in.readString();
+        detailsLink = in.readString();
+    }
+
+    public static final Creator<NewsModel> CREATOR = new Creator<NewsModel>() {
+        @Override
+        public NewsModel createFromParcel(Parcel in) {
+            return new NewsModel(in);
+        }
+
+        @Override
+        public NewsModel[] newArray(int size) {
+            return new NewsModel[size];
+        }
+    };
 
     public String getTitle() {
         return title;
@@ -49,5 +73,19 @@ public class NewsModel {
 
     public void setDetailsLink(String detailsLink) {
         this.detailsLink = detailsLink;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(title);
+        parcel.writeString(description);
+        parcel.writeString(date);
+        parcel.writeString(imgLink);
+        parcel.writeString(detailsLink);
     }
 }
