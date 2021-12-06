@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class SessionServices {
+    //This class for storing data to deliver in app!!
     public static ArrayList<NewsModel> listNews;
 
     public static ArrayList<NewsModel> getListNews() {
