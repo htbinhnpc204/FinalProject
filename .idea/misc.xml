@@ -13,9 +13,10 @@
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/content_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/dia_forgot.xml" value="0.30434782608695654" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_gallery.xml" value="0.5" />
-        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_news.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_news.xml" value="0.25" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_person_infor.xml" value="0.1" />
-        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_news.xml" value="0.2" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_resultdetails.xml" value="0.1" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_news.xml" value="0.33" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/nav_header_main.xml" value="0.5" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/menu/main.xml" value="0.20416666666666666" />

@@ -5,6 +5,7 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/group_function"
             android:title="Chức năng">
@@ -14,10 +15,12 @@
                     android:id="@+id/nav_news"
                     android:icon="@drawable/ico_news"
                     android:title="Trang tin tức" />
+
                 <item
                     android:id="@+id/nav_schedule"
                     android:icon="@drawable/ico_schedule"
                     android:title="Lịch học" />
+
                 <item
                     android:id="@+id/nav_examSchedule"
                     android:icon="@drawable/ico_exam"
@@ -25,8 +28,8 @@
                 <item
                     android:id="@+id/nav_result"
                     android:icon="@drawable/ico_grade"
-                    android:title="Kết quả học tập"
-                    />
+                    android:title="Kết quả học tập"/>
+
                 <item
                     android:id="@+id/nav_notify"
                     android:icon="@drawable/ico_notify"
@@ -36,7 +39,7 @@
                     android:visible="false"
                     android:id="@+id/nav_resultdetails"
                     android:title="Chi tiết kết quả học tập"/>
-                    android:title="Thông báo từ giảng viên" />
+
                 <item
                     android:id="@+id/nav_tuitionfee"
                     android:icon="@drawable/ico_fee"

@@ -35,6 +35,7 @@ public class NewsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentNewsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
         if(SessionServices.getListNews() != null){
             newsModel = SessionServices.getListNews();
         }
@@ -42,6 +43,7 @@ public class NewsFragment extends Fragment {
             newsModel = new ArrayList<>();
             Toast.makeText(getContext(), "List is null", Toast.LENGTH_SHORT).show();
         }
+
         final ListView listView = binding.listNews;
         NewsItemAdapter adapter = new NewsItemAdapter(container.getContext(), R.layout.item_news, newsModel);
         listView.setAdapter(adapter);

@@ -172,6 +172,9 @@ public class LoginActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         String log = baseURL + loginURL;
 
+        //Make all request here !!
+        //region Request
+
         StringRequest loginRequest = new StringRequest(Request.Method.POST, log, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -235,8 +238,13 @@ public class LoginActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {news.clear();}
                 });
 
+        //endregion
+
+        //Then add this in to queue
         queue.add(loginRequest);
         queue.add(newsRequest);
+
+
     }
 
     public void doLogin(View v){

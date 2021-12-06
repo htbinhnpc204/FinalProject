@@ -39,10 +39,6 @@ public class MainActivity extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
 
-        Bundle b = getIntent().getExtras();
-        NewsFragment n = new NewsFragment();
-        n.setArguments(b);
-
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_schedule, R.id.nav_examSchedule, R.id.nav_news, R.id.nav_result, R.id.nav_notification, R.id.nav_tuitionfee)
                 .setOpenableLayout(drawer)
