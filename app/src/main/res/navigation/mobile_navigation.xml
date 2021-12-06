@@ -36,12 +36,6 @@
         android:label="Kết quả học tập"
         tools:layout="@layout/fragment_result" >
     </fragment>
-    <fragment
-        android:id="@+id/nav_resultdetails"
-        android:name="com.htbinh.finalproject.ui.resuldetails.ResultDetailsFragment"
-        android:label="Chi tiết kết quả học tập"
-        tools:layout="@layout/fragment_resultdetails" >
-    </fragment>
 
     <fragment
         android:id="@+id/nav_notification"
@@ -54,7 +48,6 @@
         android:name="com.htbinh.finalproject.ui.tuitionfee.TuitionfeeFragment"
         android:label="Thông tin học phí"
         tools:layout="@layout/fragment_tuitionfee" />
-
 
     <fragment
         android:id="@+id/nav_person"
