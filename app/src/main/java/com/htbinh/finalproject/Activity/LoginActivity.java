@@ -38,6 +38,7 @@ import com.android.volley.toolbox.Volley;
 import com.htbinh.finalproject.Dialog.LoadingDialog;
 import com.htbinh.finalproject.R;
 import com.htbinh.finalproject.Services.SessionServices;
+import com.htbinh.finalproject.ui.examSchedule.ExamScheduleModel;
 import com.htbinh.finalproject.ui.news.NewsModel;
 
 import org.json.JSONArray;
@@ -71,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
     private String resultDetailsURL = "sinhvien/kqhoctap/chitiet";
     private String notificationURL = "getnoti";
     private String tuitionURL = "getfee";
+    private String examScheduleURL = "sinhvien/lichthi";
     //endregion
 
     Animation topAnimation;
@@ -240,11 +242,41 @@ public class LoginActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {news.clear();}
                 });
 
+        ArrayList<ExamScheduleModel> examScheduleModels = new ArrayList<>();
+
+        JsonArrayRequest examScheduleRequest = new JsonArrayRequest(Request.Method.GET, baseURL + examScheduleURL, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for(int i = 0; i < response.length(); i++){
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                examScheduleModels.add( new ExamScheduleModel(
+                                        obj.getString("ngayThi"),
+                                        obj.getString("tenLopHp"),
+                                        obj.getString("tenHp"),
+                                        obj.getString("giangVien"),
+                                        obj.getString("gioThi"),
+                                        obj.getString("phongThi")
+                                ));
+                            } catch (JSONException e) {
+                                examScheduleModels.clear();
+                            }
+                        }
+                        SessionServices.setListExamSchedule(examScheduleModels);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {examScheduleModels.clear();}
+                });
+
         //endregion
 
         //Then add this into queue
         queue.add(loginRequest);
         queue.add(newsRequest);
+        queue.add(examScheduleRequest);
 
         Toast.makeText(getApplicationContext(), "Đang đăng nhập vui lòng chờ", Toast.LENGTH_SHORT).show();
     }

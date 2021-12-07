@@ -28,6 +28,17 @@
             android:textColor="@color/black"
             android:textSize="16sp" />
 
+        <TextView
+            android:id="@+id/tvthongbao"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="#FFDDAB"
+            android:padding="10dp"
+            android:text="Học kỳ hiện tại chưa có lịch thi."
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:visibility="gone" />
     </LinearLayout>
 
     <ListView
