@@ -41,6 +41,11 @@
                     android:title="Chi tiết kết quả học tập"/>
 
                 <item
+                    android:visible="false"
+                    android:id="@+id/nav_newsdetails"
+                    android:title="Chi tiết tin tức"/>
+
+                <item
                     android:id="@+id/nav_tuitionfee"
                     android:icon="@drawable/ico_fee"
                     android:title="Thông tin học phí" />

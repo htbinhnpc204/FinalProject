@@ -1,4 +1,4 @@
-package com.htbinh.finalproject;
+package com.htbinh.finalproject.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.htbinh.finalproject.login.LoginActivity;
+import com.htbinh.finalproject.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

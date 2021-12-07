@@ -1,21 +1,14 @@
-package com.htbinh.finalproject;
+package com.htbinh.finalproject.Services;
 
-import android.widget.Toast;
+import android.util.DisplayMetrics;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.htbinh.finalproject.ui.news.NewsModel;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class SessionServices {
     //This class for storing data to deliver in app!!
+    public static DisplayMetrics appMetrics;
     public static ArrayList<NewsModel> listNews;
 
     public static ArrayList<NewsModel> getListNews() {
@@ -24,5 +17,13 @@ public class SessionServices {
 
     public static void setListNews(ArrayList<NewsModel> listNews) {
         SessionServices.listNews = listNews;
+    }
+
+    public static DisplayMetrics getAppMetrics() {
+        return appMetrics;
+    }
+
+    public static void setAppMetrics(DisplayMetrics appMetrics) {
+        SessionServices.appMetrics = appMetrics;
     }
 }
