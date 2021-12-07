@@ -24,17 +24,22 @@
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/drawable/ic_bg_avt.xml" value="0.1962962962962963" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/drawable/ic_bg_person.xml" value="0.1962962962962963" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/drawable/ic_btn_bg.xml" value="0.1962962962962963" />
+        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/drawable/side_nav_bar.xml" value="0.16203703703703703" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/font/arbutus.xml" value="0.18796296296296297" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/font/unna.xml" value="0.18796296296296297" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/activity_exam_schedule.xml" value="0.176" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.14537037037037037" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/content_main.xml" value="0.14537037037037037" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_exam_schedule.xml" value="0.25" />
+        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_exam_schedule.xml" value="0.2" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.14537037037037037" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_news.xml" value="0.25" />
-        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_person_infor.xml" value="0.2" />
+        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_person_infor.xml" value="0.264" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_schedule.xml" value="0.12708333333333333" />
+        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_schedule_day.xml" value="0.25" />
+        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/fragment_schedule_week.xml" value="0.25" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/item_exam_schedule.xml" value="0.4" />
+        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/item_news.xml" value="0.25" />
+        <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/item_schedule_week.xml" value="0.25" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/layout/nav_header_main.xml" value="0.1537037037037037" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/menu/activity_main_drawer.xml" value="0.264" />
         <entry key="..\:/Learn/Android/FinalProject/app/src/main/res/menu/main.xml" value="0.14537037037037037" />

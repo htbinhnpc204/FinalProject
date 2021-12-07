@@ -34,16 +34,20 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.htbinh.finalproject.MainActivity;
 import com.htbinh.finalproject.R;
 import com.htbinh.finalproject.SessionServices;
+import com.htbinh.finalproject.ui.examSchedule.ExamScheduleModel;
 import com.htbinh.finalproject.ui.news.NewsModel;
+import com.htbinh.finalproject.ui.personInfo.PersonInfoModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -73,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
     private String resultDetailsURL = "sinhvien/kqhoctap/chitiet";
     private String notificationURL = "getnoti";
     private String tuitionURL = "getfee";
+    private String examScheduleURL = "sinhvien/lichthi";
     //endregion
 
     Animation topAnimation;
@@ -245,6 +250,71 @@ public class LoginActivity extends AppCompatActivity {
         queue.add(newsRequest);
 
 
+//        PersonInfoModel personInforModel;
+//
+//        JsonArrayRequest personInfoRequest = new JsonArrayRequest(Request.Method.GET, baseURL + personInfoURL, null,
+//                new Response.Listener<JSONArray>() {
+//                    @Override
+//                    public void onResponse(JSONArray response) {
+//                        try {
+//                            JSONObject obj = response.getJSONObject(response.length());
+//                            personInforModel = new PersonInfoModel(
+//                                    obj.getString("ma_sv"),
+//                                    obj.getString("ten_sv"),
+//                                    obj.getString("soCMND"),
+//                                    obj.getString("noiSinh"),
+//                                    obj.getString("soDienThoai"),
+//                                    obj.getString("email")
+//                            );
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                        SessionServices.setListPerson(personInforModel);
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                    }
+//                });
+//
+//        queue.add(loginRequest);
+//        queue.add(personInfoRequest);
+
+        ArrayList<ExamScheduleModel> examScheduleModels = new ArrayList<>();
+
+        JsonArrayRequest examScheduleRequest = new JsonArrayRequest(Request.Method.GET, baseURL + examScheduleURL, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for(int i = 0; i < response.length(); i++){
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                examScheduleModels.add( new ExamScheduleModel(
+                                        obj.getString("ngayThi"),
+                                        obj.getString("tenLopHp"),
+                                        obj.getString("tenHp"),
+                                        obj.getString("giangVien"),
+                                        obj.getString("gioThi"),
+                                        obj.getString("phongThi")
+                                ));
+                            } catch (JSONException e) {
+                                examScheduleModels.clear();
+                            }
+                        }
+                        SessionServices.setListExamSchedule(examScheduleModels);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {examScheduleModels.clear();}
+                });
+
+        //endregion
+
+        //Then add this in to queue
+        queue.add(examScheduleRequest);
+
     }
 
     public void doLogin(View v){
@@ -279,4 +349,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         }, 2000);
     }
+
+
 }
