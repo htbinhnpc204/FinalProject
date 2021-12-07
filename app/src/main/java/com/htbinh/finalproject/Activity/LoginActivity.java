@@ -1,6 +1,5 @@
-package com.htbinh.finalproject.login;
+package com.htbinh.finalproject.Activity;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -36,9 +35,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.htbinh.finalproject.MainActivity;
+import com.htbinh.finalproject.Dialog.LoadingDialog;
 import com.htbinh.finalproject.R;
-import com.htbinh.finalproject.SessionServices;
+import com.htbinh.finalproject.Services.SessionServices;
 import com.htbinh.finalproject.ui.news.NewsModel;
 
 import org.json.JSONArray;
@@ -49,7 +48,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ResourceBundle;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -102,7 +100,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Mapping();
-
         SharedPreferences sharedPreferences = getSharedPreferences("checkbox", MODE_PRIVATE);
         String rememberMeText = sharedPreferences.getString("remember","");
 
@@ -169,6 +166,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void goToHome(String msv, String pass){
+        final LoadingDialog loading = new LoadingDialog(this);
+        loading.startLoading();
         RequestQueue queue = Volley.newRequestQueue(this);
         String log = baseURL + loginURL;
 
@@ -179,9 +178,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if(response.equals("true")){
+                    loading.dismissLoading();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 }
                 else{
+                    loading.dismissLoading();
                     Toast.makeText(getApplicationContext(), "Tài khoản hoặc mật khẩu không chính xác!"
                             , Toast.LENGTH_SHORT).show();
                 }
@@ -189,6 +190,7 @@ public class LoginActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                loading.dismissLoading();
                 Toast.makeText(getApplicationContext(), "Error!" , Toast.LENGTH_SHORT).show();
             }
         }){
@@ -240,11 +242,11 @@ public class LoginActivity extends AppCompatActivity {
 
         //endregion
 
-        //Then add this in to queue
+        //Then add this into queue
         queue.add(loginRequest);
         queue.add(newsRequest);
 
-
+        Toast.makeText(getApplicationContext(), "Đang đăng nhập vui lòng chờ", Toast.LENGTH_SHORT).show();
     }
 
     public void doLogin(View v){

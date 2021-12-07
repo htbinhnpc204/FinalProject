@@ -1,10 +1,11 @@
-package com.htbinh.finalproject;
+package com.htbinh.finalproject.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -17,9 +18,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.htbinh.finalproject.R;
+import com.htbinh.finalproject.Services.SessionServices;
 import com.htbinh.finalproject.databinding.ActivityMainBinding;
-import com.htbinh.finalproject.login.LoginActivity;
-import com.htbinh.finalproject.ui.news.NewsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        SessionServices.setAppMetrics(displayMetrics);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_schedule, R.id.nav_examSchedule, R.id.nav_news, R.id.nav_result, R.id.nav_notification, R.id.nav_tuitionfee)
