@@ -1,6 +1,9 @@
 package com.htbinh.finalproject.ui.examSchedule;
 
-public class ExamScheduleModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ExamScheduleModel implements Parcelable {
     private String ngaythi;
     private String tenlhp;
     private String tenhp;
@@ -20,6 +23,27 @@ public class ExamScheduleModel {
         this.giothi = giothi;
         this.phongthi = phongthi;
     }
+
+    protected ExamScheduleModel(Parcel in) {
+        ngaythi = in.readString();
+        tenlhp = in.readString();
+        tenhp = in.readString();
+        giangvien = in.readString();
+        giothi = in.readString();
+        phongthi = in.readString();
+    }
+
+    public static final Parcelable.Creator<ExamScheduleModel> CREATOR = new Parcelable.Creator<ExamScheduleModel>() {
+        @Override
+        public ExamScheduleModel createFromParcel(Parcel in) {
+            return new ExamScheduleModel(in);
+        }
+
+        @Override
+        public ExamScheduleModel[] newArray(int size) {
+            return new ExamScheduleModel[size];
+        }
+    };
 
     public String getNgaythi() {
         return ngaythi;
@@ -69,4 +93,18 @@ public class ExamScheduleModel {
         this.phongthi = phongthi;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(ngaythi);
+        parcel.writeString(tenlhp);
+        parcel.writeString(tenhp);
+        parcel.writeString(giangvien);
+        parcel.writeString(giothi);
+        parcel.writeString(phongthi);
+    }
 }
