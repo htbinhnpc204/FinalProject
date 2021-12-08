@@ -1,26 +1,26 @@
 package com.htbinh.finalproject.ui.schedule;
 
 public class scheduleModel {
-    private String ngay;
+    private String thu;
     private String monhoc;
     private String tiet;
     private String gv;
     private String phong;
 
-    public scheduleModel(String ngay, String monhoc, String tiet, String gv, String phong) {
-        this.ngay = ngay;
+    public scheduleModel(String thu, String monhoc, String tiet, String gv, String phong) {
+        this.thu = thu;
         this.monhoc = monhoc;
         this.tiet = tiet;
         this.gv = gv;
         this.phong = phong;
     }
 
-    public String getNgay() {
-        return ngay;
+    public String getThu() {
+        return thu;
     }
 
-    public void setNgay(String ngay) {
-        this.ngay = ngay;
+    public void setThu(String thu) {
+        this.thu = thu;
     }
 
     public String getMonhoc() {

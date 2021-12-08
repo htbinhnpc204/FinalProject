@@ -5,11 +5,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
 
 import com.htbinh.finalproject.R;
+import com.htbinh.finalproject.Services.SessionServices;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -61,21 +63,19 @@ public class DayFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        listTKB = new ArrayList<>();
-        listTKB.add(new scheduleModel("06/11/2021","Lập trình di động 1","7-9","Đỗ Phú Huy","ONLINE"));
-        listTKB.add(new scheduleModel("07/11/2021","Lập trình di động 2","7-9","Đỗ Phú Huy","ONLINE"));
-        listTKB.add(new scheduleModel("08/11/2021","Lập trình di động 3","7-9","Đỗ Phú Huy","ONLINE"));
-        listTKB.add(new scheduleModel("09/11/2021","Lập trình di động 4","7-9","Đỗ Phú Huy","ONLINE"));
-        listTKB.add(new scheduleModel("10/11/2021","Lập trình di động 5","7-9","Đỗ Phú Huy","ONLINE"));
-        listTKB.add(new scheduleModel("11/11/2021","Lập trình di động 6","7-9","Đỗ Phú Huy","ONLINE"));
-        listTKB.add(new scheduleModel("12/11/2021","Lập trình di động 7 ","7-9","Đỗ Phú Huy","ONLINE"));
-        listTKB.add(new scheduleModel("13/11/2021","Lập trình di động 8","7-9","Đỗ Phú Huy","ONLINE"));
+        if(SessionServices.getListSchedule() != null){
+            listTKB = SessionServices.getListSchedule();
+        }
+        else{
+            listTKB = new ArrayList<>();
+            Toast.makeText(getContext(), "List is null", Toast.LENGTH_SHORT).show();
+        }
 
         ArrayList<scheduleModel> tmp = new ArrayList<>();
 
         for (scheduleModel item:
              listTKB) {
-            if(getDayOfWeek() == getDayOfWeek(item.getNgay())){
+            if(getDayOfWeek() == Integer.valueOf(item.getThu())){
                 tmp.add(item);
             }
         }
@@ -89,18 +89,6 @@ public class DayFragment extends ListFragment {
     private int getDayOfWeek(){
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
-        return c.get(Calendar.DAY_OF_WEEK);
-    }
-
-    private int getDayOfWeek(String sDate){
-        Calendar c = Calendar.getInstance();
-        Date myDate = null;
-        try {
-            myDate = new SimpleDateFormat("dd/MM/yyyy").parse(sDate);
-        } catch (ParseException e) {
-            Log.i("Date format","Date format error!" + sDate);
-        }
-        c.setTime(myDate);
         return c.get(Calendar.DAY_OF_WEEK);
     }
 }

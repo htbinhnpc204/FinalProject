@@ -43,16 +43,16 @@
         <LinearLayout
             android:id="@+id/expandArea"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/content"
-            android:background="#D4F0FF"
+            android:layout_height="wrap_content"
             android:visibility="gone">
 
             <ListView
                 android:id="@+id/listMonHoc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/content"
                 android:divider="@android:color/transparent"
+                android:background="#D4F0FF"
                 android:dividerHeight="10dp" />
 
         </LinearLayout>

@@ -39,6 +39,7 @@ import com.htbinh.finalproject.Dialog.LoadingDialog;
 import com.htbinh.finalproject.R;
 import com.htbinh.finalproject.Services.SessionServices;
 import com.htbinh.finalproject.ui.news.NewsModel;
+import com.htbinh.finalproject.ui.schedule.scheduleModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -106,7 +107,9 @@ public class LoginActivity extends AppCompatActivity {
         if(rememberMeText.equals("true")){
             String msv = sharedPreferences.getString("msv","");
             String pass = sharedPreferences.getString("pw", "");
-            goToHome(msv, pass);
+            tk.setText(msv);
+            mk.setText(pass);
+            rememberMeCheck.setChecked(true);
         }
 
         rememberMeCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -174,10 +177,39 @@ public class LoginActivity extends AppCompatActivity {
         //Make all request here !!
         //region Request
 
+        ArrayList<scheduleModel> schedule = new ArrayList<>();
+        JsonArrayRequest scheduleRequest = new JsonArrayRequest(Request.Method.GET, baseURL + scheduleURL, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for(int i = 0; i < response.length(); i++){
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                schedule.add( new scheduleModel(
+                                        obj.getString("thu"),
+                                        obj.getString("tenHp"),
+                                        obj.getString("tiet"),
+                                        obj.getString("giangVien"),
+                                        obj.getString("phong")
+                                ));
+                            } catch (JSONException e) {
+
+                            }
+                        }
+                        Toast.makeText(getApplicationContext(), schedule.size() + "", Toast.LENGTH_LONG).show();
+                        SessionServices.setListSchedule(schedule);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {}
+                });
+
         StringRequest loginRequest = new StringRequest(Request.Method.POST, log, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if(response.equals("true")){
+                    queue.add(scheduleRequest);
                     loading.dismissLoading();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 }
@@ -191,7 +223,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 loading.dismissLoading();
-                Toast.makeText(getApplicationContext(), "Error!" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Login error!" , Toast.LENGTH_SHORT).show();
             }
         }){
             @Override
@@ -212,8 +244,8 @@ public class LoginActivity extends AppCompatActivity {
                 return params;
             }
         };
-        ArrayList<NewsModel> news = new ArrayList<>();
 
+        ArrayList<NewsModel> news = new ArrayList<>();
         JsonArrayRequest newsRequest = new JsonArrayRequest(Request.Method.GET, baseURL + newsURL, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -229,7 +261,6 @@ public class LoginActivity extends AppCompatActivity {
                                         obj.getString("detailsLink")
                                 ));
                             } catch (JSONException e) {
-                                news.clear();
                             }
                         }
                         SessionServices.setListNews(news);
@@ -237,7 +268,7 @@ public class LoginActivity extends AppCompatActivity {
                 },
                 new Response.ErrorListener() {
                     @Override
-                    public void onErrorResponse(VolleyError error) {news.clear();}
+                    public void onErrorResponse(VolleyError error) {}
                 });
 
         //endregion
