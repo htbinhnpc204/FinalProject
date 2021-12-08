@@ -59,8 +59,8 @@ public class scheduleOfDayAdapter extends BaseAdapter {
         gv.setText("Giảng viên: " + LICHHOC.getGv());
         phong.setText("Phòng: " + LICHHOC.getPhong());
 
-        Animation anim = AnimationUtils.loadAnimation(context, R.anim.left_slide);
-        view.startAnimation(anim);
+//        Animation anim = AnimationUtils.loadAnimation(context, R.anim.left_slide);
+//        view.startAnimation(anim);
 
         return view;
     }
