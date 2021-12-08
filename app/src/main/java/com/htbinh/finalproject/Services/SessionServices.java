@@ -4,7 +4,11 @@ import android.util.DisplayMetrics;
 
 import com.htbinh.finalproject.ui.examSchedule.ExamScheduleModel;
 import com.htbinh.finalproject.ui.news.NewsModel;
+<<<<<<< HEAD
 import com.htbinh.finalproject.ui.personInfo.StudentModel;
+=======
+import com.htbinh.finalproject.ui.schedule.scheduleModel;
+>>>>>>> master
 
 import java.util.ArrayList;
 
@@ -12,6 +16,7 @@ public class SessionServices {
     //This class for storing data to deliver in app!!
     public static DisplayMetrics appMetrics;
     public static ArrayList<NewsModel> listNews;
+<<<<<<< HEAD
     public static ArrayList<ExamScheduleModel> listExamSchedule;
     public static StudentModel personInfoModel;
 
@@ -23,6 +28,9 @@ public class SessionServices {
     public static void setAppMetrics(DisplayMetrics appMetrics) {
         SessionServices.appMetrics = appMetrics;
     }
+=======
+    public static ArrayList<scheduleModel> listSchedule;
+>>>>>>> master
 
     public static ArrayList<NewsModel> getListNews() {
         return listNews;
@@ -46,5 +54,13 @@ public class SessionServices {
 
     public static void setPersonInfoModel(StudentModel personInfoModel) {
         SessionServices.personInfoModel = personInfoModel;
+    }
+
+    public static ArrayList<scheduleModel> getListSchedule() {
+        return listSchedule;
+    }
+
+    public static void setListSchedule(ArrayList<scheduleModel> listSchedule) {
+        SessionServices.listSchedule = listSchedule;
     }
 }

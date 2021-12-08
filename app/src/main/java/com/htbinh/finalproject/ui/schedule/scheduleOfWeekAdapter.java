@@ -70,10 +70,9 @@ public class scheduleOfWeekAdapter extends BaseAdapter {
         LinearLayout area = view.findViewById(R.id.expandArea);
 
         List<scheduleModel> tmp = new ArrayList<>();
-
         for (scheduleModel item:
                 arraylist) {
-            if (getThu(getDayOfWeek(item.getNgay())).equals(listThu.get(i))){
+            if (getThu(Integer.valueOf(item.getThu())).equals(listThu.get(i))){
                 tmp.add(item);
             }
         }
@@ -81,7 +80,7 @@ public class scheduleOfWeekAdapter extends BaseAdapter {
         ngay.setText(listThu.get(i));
 
         Animation anim = AnimationUtils.loadAnimation(context, R.anim.left_slide);
-        view.startAnimation(anim);
+//        view.startAnimation(anim);
 
         scheduleOfDayAdapter adapter = new scheduleOfDayAdapter(viewGroup.getContext(), R.layout.item_schedule_day, tmp);
         lv.setAdapter(adapter);
@@ -90,9 +89,6 @@ public class scheduleOfWeekAdapter extends BaseAdapter {
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
                 if(area.getVisibility() == View.GONE){
                     more.setText("Thu gọn");
                     TransitionManager.beginDelayedTransition(expandable, new AutoTransition());
