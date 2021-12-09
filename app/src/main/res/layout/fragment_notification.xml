@@ -6,12 +6,28 @@
     tools:context=".ui.notification.NotificationFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/txtthongbao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/ic_bg_card1"
+        android:paddingLeft="10dp"
+        android:layout_marginRight="32dp"
+        android:text="Hiện tại chưa có thông báo!"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:visibility="gone"
+        />
+
     <ListView
+        android:layout_below="@+id/txtthongbao"
         android:id="@+id/list_notification"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
         android:divider="@android:color/transparent"
-        android:dividerHeight="10dp"/>
+        android:dividerHeight="10dp" />
 
 </RelativeLayout>

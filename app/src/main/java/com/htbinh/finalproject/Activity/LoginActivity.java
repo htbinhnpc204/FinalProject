@@ -41,8 +41,10 @@ import com.htbinh.finalproject.R;
 import com.htbinh.finalproject.Services.SessionServices;
 import com.htbinh.finalproject.ui.examSchedule.ExamScheduleModel;
 import com.htbinh.finalproject.ui.news.NewsModel;
+import com.htbinh.finalproject.ui.notification.NotificationModel;
 import com.htbinh.finalproject.ui.personInfo.StudentModel;
 import com.htbinh.finalproject.ui.schedule.scheduleModel;
+import com.htbinh.finalproject.ui.tuitionfee.TuitionfeeModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -180,6 +182,66 @@ public class LoginActivity extends AppCompatActivity {
 
         //Make all request here !!
         //region Request
+        //notification
+        ArrayList<NotificationModel> notification = new ArrayList<>();
+        JsonArrayRequest notificationRequest = new JsonArrayRequest(Request.Method.GET, baseURL + notificationURL, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Toast.makeText(getApplicationContext(), response.length() + "", Toast.LENGTH_LONG).show();
+                        for(int i = 0; i < response.length(); i++){
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                notification.add( new NotificationModel(
+                                        obj.getString("tengv"),
+                                        obj.getString("lophp"),
+                                        obj.getString("ngaynhan"),
+                                        obj.getString("noidung")
+                                ));
+                            } catch (JSONException e) {
+                            }
+                        }
+                        SessionServices.setListNotification(notification);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "notification could not be loaded!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                    //tuitionfee
+                ArrayList<TuitionfeeModel> tuitionfee = new ArrayList<>();
+                JsonArrayRequest tuitionfeeRequest = new JsonArrayRequest(Request.Method.GET, baseURL + tuitionURL, null,
+                    new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Toast.makeText(getApplicationContext(), response.length() + "", Toast.LENGTH_LONG).show();
+                        for(int i = 0; i < response.length(); i++){
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                tuitionfee.add( new TuitionfeeModel(
+                                        obj.getString("hocKy"),
+                                        obj.getString("soTinChi"),
+                                        obj.getString("hocPhi"),
+                                        obj.getString("noKyTruoc"),
+                                        obj.getString("duKyTruoc"),
+                                        obj.getString("tong")
+                                ));
+                            } catch (JSONException e) {
+                            }
+                        }
+                        SessionServices.setListTuition(tuitionfee);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "Tuition could not be loaded!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
 
         ArrayList<ExamScheduleModel> examScheduleModels = new ArrayList<>();
         JsonArrayRequest examScheduleRequest = new JsonArrayRequest(Request.Method.GET, baseURL + examScheduleURL, null,
@@ -277,8 +339,11 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 if (response.equals("true")) {
                     queue.add(examScheduleRequest);
+                    queue.add(tuitionfeeRequest);
                     queue.add(personInfoRequest);
                     queue.add(scheduleRequest);
+                    queue.add(notificationRequest);
+
                     loading.dismissLoading();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 } else {
