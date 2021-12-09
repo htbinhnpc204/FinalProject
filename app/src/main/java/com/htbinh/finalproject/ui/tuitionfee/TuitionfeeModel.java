@@ -2,16 +2,14 @@ package com.htbinh.finalproject.ui.tuitionfee;
 
 public class TuitionfeeModel {
     private String hocki;
-    private String Namhoc;
     private String stcdk;
     private String hocphipn;
     private String sonokt;
     private String sodukt;
     private String Tongtien;
 
-    public TuitionfeeModel(String hocki, String namhoc, String stcdk, String hocphipn, String sonokt, String sodukt, String tongtien) {
+    public TuitionfeeModel(String hocki, String stcdk, String hocphipn, String sonokt, String sodukt, String tongtien) {
         this.hocki = hocki;
-        Namhoc = namhoc;
         this.stcdk = stcdk;
         this.hocphipn = hocphipn;
         this.sonokt = sonokt;
@@ -25,14 +23,6 @@ public class TuitionfeeModel {
 
     public void setHocki(String hocki) {
         this.hocki = hocki;
-    }
-
-    public String getNamhoc() {
-        return Namhoc;
-    }
-
-    public void setNamhoc(String namhoc) {
-        Namhoc = namhoc;
     }
 
     public String getStcdk() {

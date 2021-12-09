@@ -55,7 +55,6 @@ public class TuitionfeeAdapter extends BaseAdapter {
         ConstraintLayout itemnoidunghp = view.findViewById(R.id.itemnoidunghocphi);
         TextView hocky= view.findViewById(R.id.textviewhocky);
         TextView sodukt= view.findViewById(R.id.textviewsodkt);
-        TextView namhoc = view.findViewById(R.id.textviewnamhoc);
         TextView xemchitiethp = view.findViewById(R.id.textviewxemchitiethocphi);
         TextView sotcdk =view.findViewById(R.id.textviewsotcdk);
         TextView hocphipn = view.findViewById(R.id.textviewhppn);
@@ -63,7 +62,6 @@ public class TuitionfeeAdapter extends BaseAdapter {
         TextView tongtien = view.findViewById(R.id.textviewtongtienpn);
 
         hocky.setText(HOCPHI.getHocki());
-        namhoc.setText(HOCPHI.getNamhoc());
         sotcdk.setText(HOCPHI.getStcdk());
         hocphipn.setText(HOCPHI.getHocphipn());
         sonokt.setText(HOCPHI.getSonokt());

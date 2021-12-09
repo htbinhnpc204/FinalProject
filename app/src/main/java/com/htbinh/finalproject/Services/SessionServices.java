@@ -4,8 +4,10 @@ import android.util.DisplayMetrics;
 
 import com.htbinh.finalproject.ui.examSchedule.ExamScheduleModel;
 import com.htbinh.finalproject.ui.news.NewsModel;
+import com.htbinh.finalproject.ui.notification.NotificationModel;
 import com.htbinh.finalproject.ui.personInfo.StudentModel;
 import com.htbinh.finalproject.ui.schedule.scheduleModel;
+import com.htbinh.finalproject.ui.tuitionfee.TuitionfeeModel;
 
 import java.util.ArrayList;
 
@@ -16,6 +18,8 @@ public class SessionServices {
     public static ArrayList<ExamScheduleModel> listExamSchedule;
     public static StudentModel personInfoModel;
     public static ArrayList<scheduleModel> listSchedule;
+    public static ArrayList<TuitionfeeModel> listTuition;
+    public static ArrayList<NotificationModel> listNotification;
 
 
 
@@ -57,5 +61,20 @@ public class SessionServices {
 
     public static void setListSchedule(ArrayList<scheduleModel> listSchedule) {
         SessionServices.listSchedule = listSchedule;
+    }
+
+    public static ArrayList<TuitionfeeModel> getListTuition() {
+        return listTuition;
+    }
+    public static void setListTuition(ArrayList<TuitionfeeModel> listTuition) {
+        SessionServices.listTuition = listTuition;
+    }
+
+
+    public static ArrayList<NotificationModel> getListNotification() {
+        return listNotification;
+    }
+    public static void setListNotification(ArrayList<NotificationModel> listNotification) {
+        SessionServices.listNotification = listNotification;
     }
 }

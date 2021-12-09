@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 import com.htbinh.finalproject.R;
+import com.htbinh.finalproject.Services.SessionServices;
 import com.htbinh.finalproject.databinding.FragmentNotificationBinding;
 
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class NotificationFragment extends Fragment {
-
+    private TextView txtthongbao;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -71,13 +73,16 @@ public class NotificationFragment extends Fragment {
         binding = FragmentNotificationBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        notificationModels.add(new NotificationModel("Ngô Lê","12XML01","15/11/2021","Lịch thi giữa kì ngày 15/11/2021. Hình thức thi trắc nghiệm online, 30 câu, 40'. "));
-        notificationModels.add(new NotificationModel("Ngô Lê","12XML01","15/11/2021","Lịch thi giữa kì ngày 15/11/2021. Hình thức thi trắc nghiệm online, 30 câu, 40'. "));
-        notificationModels.add(new NotificationModel("Ngô Lê","12XML01","15/11/2021","Lịch thi giữa kì ngày 15/11/2021. Hình thức thi trắc nghiệm online, 30 câu, 40'.Lịch thi giữa kì ngày 15/11/2021. Hình thức thi trắc nghiệm online, 30 câu, 40'.Lịch thi giữa kì ngày 15/11/2021. Hình thức thi trắc nghiệm online, 30 câu, 40'. "));
-        notificationModels.add(new NotificationModel("Ngô Lê","12XML01","15/11/2021","Lịch thi giữa kì ngày 15/11/2021. Hình thức thi trắc nghiệm online, 30 câu, 40'. "));
-        notificationModels.add(new NotificationModel("Ngô Lê","12XML01","15/11/2021","Lịch thi giữa kì ngày 15/11/2021. Hình thức thi trắc nghiệm online, 30 câu, 40'. "));
-        notificationModels.add(new NotificationModel("Ngô Lê","12XML01","15/11/2021","Lịch thi giữa kì ngày 15/11/2021. Hình thức thi trắc nghiệm online, 30 câu, 40'. "));
+        txtthongbao = binding.txtthongbao;
 
+        if(SessionServices.getListNotification() != null){
+            notificationModels = SessionServices.getListNotification();
+            txtthongbao.setVisibility(View.GONE);
+        }
+        else{
+            notificationModels = new ArrayList<>();
+            txtthongbao.setVisibility(View.VISIBLE);
+        }
 
         final ListView listView= binding.listNotification;
         adapter = new NotificationAdapter(container.getContext(), R.layout.item_notification,notificationModels);
