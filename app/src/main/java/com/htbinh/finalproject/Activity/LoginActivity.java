@@ -1,19 +1,14 @@
 package com.htbinh.finalproject.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import android.widget.Toast;
-
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -26,6 +21,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -43,6 +42,7 @@ import com.htbinh.finalproject.ui.examSchedule.ExamScheduleModel;
 import com.htbinh.finalproject.ui.news.NewsModel;
 import com.htbinh.finalproject.ui.notification.NotificationModel;
 import com.htbinh.finalproject.ui.personInfo.StudentModel;
+import com.htbinh.finalproject.ui.result.ResultModel;
 import com.htbinh.finalproject.ui.schedule.scheduleModel;
 import com.htbinh.finalproject.ui.tuitionfee.TuitionfeeModel;
 
@@ -182,6 +182,34 @@ public class LoginActivity extends AppCompatActivity {
 
         //Make all request here !!
         //region Request
+
+        ArrayList<ResultModel> result = new ArrayList<>();
+        JsonArrayRequest resultRequest = new JsonArrayRequest(Request.Method.GET, baseURL + resultURL, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for(int i = 0; i < response.length(); i++){
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                result.add( new ResultModel(
+                                        obj.getString("hocKy"),
+                                        obj.getString("soTcTichLuy"),
+                                        obj.getString("xepLoai"),
+                                        obj.getString("diemTbcHocKy"),
+                                        obj.getString("diemTbcHocBong")
+                                ));
+                            } catch (JSONException e) {
+
+                            }
+                        }
+                        SessionServices.setListResult(result);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {result.clear();}
+                });
+
         //notification
         ArrayList<NotificationModel> notification = new ArrayList<>();
         JsonArrayRequest notificationRequest = new JsonArrayRequest(Request.Method.GET, baseURL + notificationURL, null,
@@ -343,6 +371,7 @@ public class LoginActivity extends AppCompatActivity {
                     queue.add(personInfoRequest);
                     queue.add(scheduleRequest);
                     queue.add(notificationRequest);
+                    queue.add(resultRequest);
 
                     loading.dismissLoading();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));

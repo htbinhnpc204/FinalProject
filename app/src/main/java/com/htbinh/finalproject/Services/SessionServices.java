@@ -6,6 +6,7 @@ import com.htbinh.finalproject.ui.examSchedule.ExamScheduleModel;
 import com.htbinh.finalproject.ui.news.NewsModel;
 import com.htbinh.finalproject.ui.notification.NotificationModel;
 import com.htbinh.finalproject.ui.personInfo.StudentModel;
+import com.htbinh.finalproject.ui.result.ResultModel;
 import com.htbinh.finalproject.ui.schedule.scheduleModel;
 import com.htbinh.finalproject.ui.tuitionfee.TuitionfeeModel;
 
@@ -20,6 +21,7 @@ public class SessionServices {
     public static ArrayList<scheduleModel> listSchedule;
     public static ArrayList<TuitionfeeModel> listTuition;
     public static ArrayList<NotificationModel> listNotification;
+    public static ArrayList<ResultModel> listResult;
 
 
 
@@ -76,5 +78,13 @@ public class SessionServices {
     }
     public static void setListNotification(ArrayList<NotificationModel> listNotification) {
         SessionServices.listNotification = listNotification;
+    }
+
+    public static ArrayList<ResultModel> getListResult() {
+        return listResult;
+    }
+
+    public static void setListResult(ArrayList<ResultModel> listResult) {
+        SessionServices.listResult = listResult;
     }
 }

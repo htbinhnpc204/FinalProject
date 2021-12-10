@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="150dp"
         android:layout_marginHorizontal="10dp"
         android:background="@drawable/ic_bg_card"
         tools:ignore="MissingConstraints">
@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Học kỳ - "
+            android:text=""
             android:textColor="#2196F3"
             android:textSize="20sp" />
 
@@ -37,8 +37,8 @@
             android:layout_below="@+id/textviewtinchi"
             android:layout_alignLeft="@+id/textviewtinchi"
             android:text="Điểm TBC học kỳ:"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textviewhocbong"
@@ -47,25 +47,27 @@
             android:layout_below="@+id/textviewhocky"
             android:layout_alignLeft="@+id/textviewhocky"
             android:text="Điểm TBC học bổng:"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textviewxeploai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textviewhocbong"
-            android:layout_alignLeft="@+id/textviewhocbong"
+            android:layout_alignLeft="@id/textviewhocbong"
+            android:layout_marginLeft="1dp"
+
             android:text="Xếp loại học tập:"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textviewname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/textviewtieude"
-            android:text="Ten"
+            android:text="Học ky Ten"
             android:textColor="#2196F3"
             android:textSize="20sp" />
 
@@ -73,7 +75,7 @@
             android:id="@+id/textViewtc"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/textviewtieude"
+            android:layout_alignRight="@+id/textviewname"
             android:layout_marginLeft="19dp"
             android:layout_marginTop="26dp"
             android:layout_marginRight="-151dp"
@@ -84,16 +86,16 @@
 
         <TextView
             android:id="@+id/textViewdiem"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="112dp"
+            android:layout_height="24dp"
             android:layout_below="@+id/textviewtieude"
             android:layout_alignRight="@+id/textviewtieude"
-            android:textColor="@color/black"
             android:layout_marginLeft="19dp"
             android:layout_marginTop="23dp"
-            android:layout_marginRight="-147dp"
+            android:layout_marginRight="-254dp"
             android:layout_toRightOf="@id/textviewtinchi"
             android:text="hoc ky"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -102,23 +104,24 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/textviewhocbong"
             android:layout_marginLeft="19dp"
-            android:textColor="@color/black"
             android:layout_toRightOf="@id/textviewtinchi"
             android:text="hoc bong"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textViewxl"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewhbong"
             android:layout_alignRight="@+id/textviewtieude"
             android:layout_marginLeft="19dp"
-            android:layout_marginRight="-155dp"
+
+            android:layout_marginRight="-236dp"
             android:layout_toRightOf="@id/textviewtinchi"
             android:text="Xep loai"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:textSize="16sp" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
