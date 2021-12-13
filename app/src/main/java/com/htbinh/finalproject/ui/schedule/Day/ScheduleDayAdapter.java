@@ -1,25 +1,24 @@
-package com.htbinh.finalproject.ui.schedule;
+package com.htbinh.finalproject.ui.schedule.Day;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.htbinh.finalproject.R;
+import com.htbinh.finalproject.ui.schedule.ScheduleModel;
 
 import java.util.List;
 
-public class scheduleOfDayAdapter extends BaseAdapter {
+public class ScheduleDayAdapter extends BaseAdapter {
 
     private final Context context;
     private final int layout;
-    private final List<scheduleModel> arraylist;
+    private final List<ScheduleModel> arraylist;
 
-    public scheduleOfDayAdapter(Context context, int layout, List<scheduleModel> arraylist) {
+    public ScheduleDayAdapter(Context context, int layout, List<ScheduleModel> arraylist) {
         this.context = context;
         this.layout = layout;
         this.arraylist = arraylist;
@@ -47,7 +46,7 @@ public class scheduleOfDayAdapter extends BaseAdapter {
 
         view = inflater.inflate(layout, null);
 
-        scheduleModel LICHHOC = arraylist.get(i);
+        ScheduleModel LICHHOC = arraylist.get(i);
         //ánh xạ
         TextView monhoc = view.findViewById(R.id.textview_MonHoc);
         TextView tiet = view.findViewById(R.id.textview_Tiet);

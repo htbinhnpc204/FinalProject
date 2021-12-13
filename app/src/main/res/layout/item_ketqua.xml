@@ -2,13 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/ic_bg_card">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginHorizontal="10dp"
-        android:background="@drawable/ic_bg_card"
+        android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textviewtieude"
             android:layout_alignLeft="@+id/textviewtieude"
+            android:layout_marginTop="4dp"
             android:text="Số tín chỉ tích lũy:"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -36,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textviewtinchi"
             android:layout_alignLeft="@+id/textviewtinchi"
+            android:layout_marginTop="4dp"
             android:text="Điểm TBC học kỳ:"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -46,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textviewhocky"
             android:layout_alignLeft="@+id/textviewhocky"
+            android:layout_marginTop="4dp"
             android:text="Điểm TBC học bổng:"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -56,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textviewhocbong"
             android:layout_alignLeft="@id/textviewhocbong"
-            android:layout_marginLeft="1dp"
+            android:layout_marginTop="7dp"
 
             android:text="Xếp loại học tập:"
             android:textColor="@color/black"
@@ -75,11 +78,8 @@
             android:id="@+id/textViewtc"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/textviewname"
-            android:layout_marginLeft="19dp"
-            android:layout_marginTop="26dp"
-            android:layout_marginRight="-151dp"
-            android:layout_toRightOf="@id/textviewtinchi"
+            android:layout_alignLeft="@+id/textViewhbong"
+            android:layout_alignTop="@+id/textviewtinchi"
             android:text="So tin chi"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -87,13 +87,9 @@
         <TextView
             android:id="@+id/textViewdiem"
             android:layout_width="112dp"
-            android:layout_height="24dp"
-            android:layout_below="@+id/textviewtieude"
-            android:layout_alignRight="@+id/textviewtieude"
-            android:layout_marginLeft="19dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginRight="-254dp"
-            android:layout_toRightOf="@id/textviewtinchi"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textViewhbong"
+            android:layout_alignTop="@+id/textviewhocky"
             android:text="hoc ky"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -103,8 +99,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/textviewhocbong"
-            android:layout_marginLeft="19dp"
-            android:layout_toRightOf="@id/textviewtinchi"
+            android:layout_marginLeft="32dp"
+            android:layout_toRightOf="@id/textviewhocbong"
             android:text="hoc bong"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -114,11 +110,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewhbong"
-            android:layout_alignRight="@+id/textviewtieude"
-            android:layout_marginLeft="19dp"
-
-            android:layout_marginRight="-236dp"
-            android:layout_toRightOf="@id/textviewtinchi"
+            android:layout_alignLeft="@+id/textViewhbong"
+            android:layout_alignTop="@+id/textviewxeploai"
+            android:layout_marginBottom="10dp"
             android:text="Xep loai"
             android:textColor="@color/black"
             android:textSize="16sp" />

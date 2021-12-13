@@ -4,14 +4,27 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.htbinh.finalproject.Dialog.LoadingDialog;
 import com.htbinh.finalproject.R;
 import com.htbinh.finalproject.Services.SessionServices;
 import com.htbinh.finalproject.databinding.FragmentResultBinding;
+import com.htbinh.finalproject.ui.result.resultdetails.ResultDetailsModel;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -38,6 +51,50 @@ public class ResultFragment extends Fragment {
         final ListView listView= binding.resultList;
         adapter = new ResultAdapter(container.getContext(), R.layout.item_ketqua,resultModelArrayList);
         listView.setAdapter(adapter);
+        final String api = "https://studentapp-backend.herokuapp.com/sinhvien/kqhoctap/chitiet?hocKy=";
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Bundle b = new Bundle();
+                String hocKy = resultModelArrayList.get(i).getHocky();
+                b.putString("hocKy", hocKy);
+                RequestQueue queue = Volley.newRequestQueue(getActivity());
+                final LoadingDialog loading = new LoadingDialog(getActivity());
+                loading.startLoading();
+                ArrayList<ResultDetailsModel> list = new ArrayList<>();
+                JsonArrayRequest details = new JsonArrayRequest(Request.Method.GET, api + hocKy.replaceAll("\\D", ""), null, new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        loading.dismissLoading();
+                        try{
+                            for(int i = 0; i < response.length(); i++){
+                                JSONObject obj = response.getJSONObject(i);
+                                list.add(new ResultDetailsModel(
+                                        obj.getString("tenMh"),
+                                        obj.getString("maHp"),
+                                        obj.getString("tinChi"),
+                                        obj.getString("diemCc"),
+                                        obj.getString("diemGk"),
+                                        obj.getString("diemCk"),
+                                        obj.getString("diemTk"),
+                                        obj.getString("diemChu")));
+                            }
+                        }catch (Exception e){}
+                        b.putParcelableArrayList("list", list);
+                        Navigation.findNavController(view).navigate(R.id.nav_newsdetails, b);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+                queue.add(details);
+            }
+        });
+
         return root;
     }
 

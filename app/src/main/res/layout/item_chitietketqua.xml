@@ -53,20 +53,19 @@
                 android:layout_below="@+id/textviewsotinchi"
                 android:layout_marginLeft="30dp"
                 android:text="Điểm chuyên cần: "
-                android:textSize="16sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textviewdiemcc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textviewsotc"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="32dp"
                 android:layout_toRightOf="@+id/textviewdiemchuyencan"
                 android:text="10.0 "
-                android:textSize="16sp"
                 android:textColor="@color/black"
-                 />
+                android:textSize="16sp" />
             <TextView
                 android:id="@+id/textviewdiemgiuaki"
                 android:layout_width="wrap_content"
@@ -106,14 +105,15 @@
                 android:textColor="@color/black"
                 android:text="8.0 "
                 android:textSize="16sp" />
+
             <TextView
                 android:id="@+id/textviewdiemtongket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textviewdiemcuoiki"
                 android:layout_marginLeft="30dp"
-                android:textColor="@color/black"
                 android:text="Điểm tổng kết: "
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <TextView
