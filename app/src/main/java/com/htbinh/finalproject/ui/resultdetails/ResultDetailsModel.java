@@ -1,87 +1,130 @@
 package com.htbinh.finalproject.ui.resultdetails;
 
-public class ResultDetailsModel {
-    private String TenHP;
-    private String MaHp;
-    private String sotc;
-    private String diemcc;
-    private String diemgk;
-    private String diemck;
-    private String diemtk;
-    private String diemchu;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    public ResultDetailsModel(String tenHP, String maHp, String sotc, String diemcc, String diemgk, String diemck, String diemtk, String diemchu) {
-        TenHP = tenHP;
-        MaHp = maHp;
-        this.sotc = sotc;
-        this.diemcc = diemcc;
-        this.diemgk = diemgk;
-        this.diemck = diemck;
-        this.diemtk = diemtk;
-        this.diemchu = diemchu;
+public class ResultDetailsModel implements Parcelable {
+    private String tenMh;
+    private String maHp;
+    private String diemChu;
+    private String tinChi;
+    private String diemCc;
+    private String diemGk;
+    private String diemCk;
+    private String diemTk;
+
+    public ResultDetailsModel(String tenMh, String maHp, String diemChu, String tinChi, String diemCc, String diemGk, String diemCk, String diemTk) {
+        this.tenMh = tenMh;
+        this.maHp = maHp;
+        this.diemChu = diemChu;
+        this.tinChi = tinChi;
+        this.diemCc = diemCc;
+        this.diemGk = diemGk;
+        this.diemCk = diemCk;
+        this.diemTk = diemTk;
     }
 
-    public String getTenHP() {
-        return TenHP;
+    protected ResultDetailsModel(Parcel in) {
+        tenMh = in.readString();
+        maHp = in.readString();
+        diemChu = in.readString();
+        tinChi = in.readString();
+        diemCc = in.readString();
+        diemGk = in.readString();
+        diemCk = in.readString();
+        diemTk = in.readString();
     }
 
-    public void setTenHP(String tenHP) {
-        TenHP = tenHP;
+    public static final Creator<ResultDetailsModel> CREATOR = new Creator<ResultDetailsModel>() {
+        @Override
+        public ResultDetailsModel createFromParcel(Parcel in) {
+            return new ResultDetailsModel(in);
+        }
+
+        @Override
+        public ResultDetailsModel[] newArray(int size) {
+            return new ResultDetailsModel[size];
+        }
+    };
+
+    public String getTenMh() {
+        return tenMh;
+    }
+
+    public void setTenMh(String tenMh) {
+        this.tenMh = tenMh;
     }
 
     public String getMaHp() {
-        return MaHp;
+        return maHp;
     }
 
     public void setMaHp(String maHp) {
-        MaHp = maHp;
+        this.maHp = maHp;
     }
 
-    public String getSotc() {
-        return sotc;
+    public String getDiemChu() {
+        return diemChu;
     }
 
-    public void setSotc(String sotc) {
-        this.sotc = sotc;
+    public void setDiemChu(String diemChu) {
+        this.diemChu = diemChu;
     }
 
-    public String getDiemcc() {
-        return diemcc;
+    public String getTinChi() {
+        return tinChi;
     }
 
-    public void setDiemcc(String diemcc) {
-        this.diemcc = diemcc;
+    public void setTinChi(String tinChi) {
+        this.tinChi = tinChi;
     }
 
-    public String getDiemgk() {
-        return diemgk;
+    public String getDiemCc() {
+        return diemCc;
     }
 
-    public void setDiemgk(String diemgk) {
-        this.diemgk = diemgk;
+    public void setDiemCc(String diemCc) {
+        this.diemCc = diemCc;
     }
 
-    public String getDiemck() {
-        return diemck;
+    public String getDiemGk() {
+        return diemGk;
     }
 
-    public void setDiemck(String diemck) {
-        this.diemck = diemck;
+    public void setDiemGk(String diemGk) {
+        this.diemGk = diemGk;
     }
 
-    public String getDiemtk() {
-        return diemtk;
+    public String getDiemCk() {
+        return diemCk;
     }
 
-    public void setDiemtk(String diemtk) {
-        this.diemtk = diemtk;
+    public void setDiemCk(String diemCk) {
+        this.diemCk = diemCk;
     }
 
-    public String getDiemchu() {
-        return diemchu;
+    public String getDiemTk() {
+        return diemTk;
     }
 
-    public void setDiemchu(String diemchu) {
-        this.diemchu = diemchu;
+    public void setDiemTk(String diemTk) {
+        this.diemTk = diemTk;
     }
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(tenMh);
+        parcel.writeString(maHp);
+        parcel.writeString(diemChu);
+        parcel.writeString(tinChi);
+        parcel.writeString(diemCc);
+        parcel.writeString(diemGk);
+        parcel.writeString(diemCk);
+        parcel.writeString(diemTk);
+    }
+
 }

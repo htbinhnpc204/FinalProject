@@ -87,4 +87,6 @@ public class SessionServices {
     public static void setListResult(ArrayList<ResultModel> listResult) {
         SessionServices.listResult = listResult;
     }
+
+
 }

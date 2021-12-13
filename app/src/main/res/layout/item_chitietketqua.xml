@@ -14,7 +14,7 @@
         android:layout_marginBottom="16dp">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="190dp">
 
             <TextView
                 android:id="@+id/textviewtenhp"
@@ -30,7 +30,7 @@
                 android:id="@+id/textviewsotinchi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textviewtenhp"
+                android:layout_below="@+id/textViewmahp"
                 android:layout_marginLeft="30dp"
                 android:text="Số tín chỉ:    "
                 android:textColor="@color/black"
@@ -40,11 +40,11 @@
                 android:id="@+id/textviewsotc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textviewtenhp"
+                android:layout_below="@+id/textViewmahp"
                 android:layout_alignLeft="@+id/textviewdiemcc"
                 android:text="2"
-                android:textSize="16sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textviewdiemchuyencan"
@@ -53,8 +53,8 @@
                 android:layout_below="@+id/textviewsotinchi"
                 android:layout_marginLeft="30dp"
                 android:text="Điểm chuyên cần: "
-                android:textSize="16sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textviewdiemcc"
@@ -64,9 +64,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_toRightOf="@+id/textviewdiemchuyencan"
                 android:text="10.0 "
-                android:textSize="16sp"
                 android:textColor="@color/black"
-                 />
+                android:textSize="16sp" />
+
             <TextView
                 android:id="@+id/textviewdiemgiuaki"
                 android:layout_width="wrap_content"
@@ -106,14 +106,15 @@
                 android:textColor="@color/black"
                 android:text="8.0 "
                 android:textSize="16sp" />
+
             <TextView
                 android:id="@+id/textviewdiemtongket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textviewdiemcuoiki"
                 android:layout_marginLeft="30dp"
-                android:textColor="@color/black"
                 android:text="Điểm tổng kết: "
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <TextView
@@ -142,9 +143,28 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textviewdiemtk"
                 android:layout_alignLeft="@+id/textviewdiemcc"
-                android:text="  B"
-                android:textSize="16sp"
-                android:textColor="@color/black"/>
+                android:text="B"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textViewmahp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textviewtenhp"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/black"
+                android:text="Mã HP" />
+
+            <TextView
+                android:id="@+id/textviewma"
+                android:layout_width="131dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textviewtenhp"
+                android:layout_alignLeft="@+id/textviewdiemcc"
+                android:text="5300035"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 

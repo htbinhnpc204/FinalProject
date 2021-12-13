@@ -45,24 +45,26 @@ public class ResultDetailsAdapter extends BaseAdapter {
 
         view = inflater.inflate(layout,null);
         //ánh xạ view
-        TextView txttenhp =(TextView) view.findViewById(R.id.textviewtenhp);
-        TextView txtsotc = (TextView) view.findViewById(R.id.textviewsotc);
-        TextView txtdiemcc = (TextView) view.findViewById(R.id.textviewdiemcc);
-        TextView txtdiemgk = (TextView) view.findViewById(R.id.textviewdiemgk);
-        TextView txtdiemck = (TextView) view.findViewById(R.id.textviewdiemck);
-        TextView txtdiemtk = (TextView) view.findViewById(R.id.textviewdiemtk);
-        TextView txtdiemc = (TextView) view.findViewById(R.id.textviewdiemc);
+        TextView tenMh =(TextView) view.findViewById(R.id.textviewtenhp);
+        TextView maHp = (TextView) view.findViewById(R.id.textviewma);
+        TextView diemChu = (TextView) view.findViewById(R.id.textviewdiemc);
+        TextView tinChi = (TextView) view.findViewById(R.id.textviewsotc);
+        TextView diemCc = (TextView) view.findViewById(R.id.textviewdiemcc);
+        TextView diemGk = (TextView) view.findViewById(R.id.textviewdiemgk);
+        TextView diemCk = (TextView) view.findViewById(R.id.textviewdiemck);
+        TextView diemTk = (TextView) view.findViewById(R.id.textviewdiemtk);
 
         //gán giá trị
         ResultDetailsModel chitietketqua = chitietketquaList.get(i);
 
-        txttenhp.setText(chitietketqua.getTenHP());
-        txtsotc.setText(chitietketqua.getSotc());
-        txtdiemcc.setText(chitietketqua.getDiemcc());
-        txtdiemgk.setText(chitietketqua.getDiemgk());
-        txtdiemck.setText(chitietketqua.getDiemck());
-        txtdiemtk.setText(chitietketqua.getDiemtk());
-        txtdiemc.setText(chitietketqua.getDiemchu());
+        tenMh.setText(chitietketqua.getTenMh());
+        maHp.setText(chitietketqua.getMaHp());
+        diemChu.setText(chitietketqua.getDiemChu());
+        tinChi.setText(chitietketqua.getTinChi());
+        diemCc.setText(chitietketqua.getDiemCc());
+        diemGk.setText(chitietketqua.getDiemGk());
+        diemCk.setText(chitietketqua.getDiemCk());
+        diemTk.setText(chitietketqua.getDiemTk());
 
         Animation anim = AnimationUtils.loadAnimation(context, R.anim.left_slide);
         view.startAnimation(anim);

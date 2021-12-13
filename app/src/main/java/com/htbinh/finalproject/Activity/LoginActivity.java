@@ -183,6 +183,8 @@ public class LoginActivity extends AppCompatActivity {
         //Make all request here !!
         //region Request
 
+
+        //result
         ArrayList<ResultModel> result = new ArrayList<>();
         JsonArrayRequest resultRequest = new JsonArrayRequest(Request.Method.GET, baseURL + resultURL, null,
                 new Response.Listener<JSONArray>() {
@@ -362,7 +364,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-                StringRequest loginRequest = new StringRequest(Request.Method.POST, log, new Response.Listener<String>() {
+        StringRequest loginRequest = new StringRequest(Request.Method.POST, log, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.equals("true")) {
@@ -372,7 +374,6 @@ public class LoginActivity extends AppCompatActivity {
                     queue.add(scheduleRequest);
                     queue.add(notificationRequest);
                     queue.add(resultRequest);
-
                     loading.dismissLoading();
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 } else {
