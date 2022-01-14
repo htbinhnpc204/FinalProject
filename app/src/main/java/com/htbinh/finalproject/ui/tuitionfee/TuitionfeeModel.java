@@ -5,15 +5,13 @@ public class TuitionfeeModel {
     private String stcdk;
     private String hocphipn;
     private String sonokt;
-    private String sodukt;
     private String Tongtien;
 
-    public TuitionfeeModel(String hocki, String stcdk, String hocphipn, String sonokt, String sodukt, String tongtien) {
+    public TuitionfeeModel(String hocki, String stcdk, String hocphipn, String sonokt, String tongtien) {
         this.hocki = hocki;
         this.stcdk = stcdk;
         this.hocphipn = hocphipn;
         this.sonokt = sonokt;
-        this.sodukt = sodukt;
         Tongtien = tongtien;
     }
 
@@ -47,14 +45,6 @@ public class TuitionfeeModel {
 
     public void setSonokt(String sonokt) {
         this.sonokt = sonokt;
-    }
-
-    public String getSodukt() {
-        return sodukt;
-    }
-
-    public void setSodukt(String sodukt) {
-        this.sodukt = sodukt;
     }
 
     public String getTongtien() {

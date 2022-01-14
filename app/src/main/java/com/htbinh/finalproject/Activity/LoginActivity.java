@@ -75,8 +75,8 @@ public class LoginActivity extends AppCompatActivity {
     private String newsURL = "getNews";
     private String resultURL = "sinhvien/kqhoctap";
     private String resultDetailsURL = "sinhvien/kqhoctap/chitiet";
-    private String notificationURL = "getnoti";
-    private String tuitionURL = "sinhvien/getfee";
+    private String notificationURL = "sinhvien/getnoti";
+    private String tuitionURL = "sinhvien/getfee/{msv}";
     private String examScheduleURL = "sinhvien/lichthi";
     //endregion
 
@@ -213,7 +213,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     //tuitionfee
                 ArrayList<TuitionfeeModel> tuitionfee = new ArrayList<>();
-                JsonArrayRequest tuitionfeeRequest = new JsonArrayRequest(Request.Method.GET, baseURL + tuitionURL, null,
+                JsonArrayRequest tuitionfeeRequest = new JsonArrayRequest(Request.Method.GET, baseURL+tuitionURL, null,
                     new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -226,7 +226,6 @@ public class LoginActivity extends AppCompatActivity {
                                         obj.getString("soTinChi"),
                                         obj.getString("hocPhi"),
                                         obj.getString("noKyTruoc"),
-                                        obj.getString("duKyTruoc"),
                                         obj.getString("tong")
                                 ));
                             } catch (JSONException e) {
