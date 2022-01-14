@@ -1,4 +1,4 @@
-package com.htbinh.finalproject.ui.schedule;
+package com.htbinh.finalproject.ui.schedule.Week;
 
 import android.content.Context;
 import android.transition.AutoTransition;
@@ -12,12 +12,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 
 import com.htbinh.finalproject.R;
-import com.htbinh.finalproject.ui.schedule.scheduleModel;
+import com.htbinh.finalproject.ui.schedule.Day.ScheduleDayAdapter;
+import com.htbinh.finalproject.ui.schedule.ScheduleModel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,14 +29,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class scheduleOfWeekAdapter extends BaseAdapter {
+public class ScheduleWeekAdapter extends BaseAdapter {
 
     private final Context context;
     private final int layout;
-    private final List<scheduleModel> arraylist;
+    private final List<ScheduleModel> arraylist;
     private final List<String> listThu;
 
-    public scheduleOfWeekAdapter(Context context, int layout, List<scheduleModel> arraylist, List<String> listThu) {
+    public ScheduleWeekAdapter(Context context, int layout, List<ScheduleModel> arraylist, List<String> listThu) {
         this.context = context;
         this.layout = layout;
         this.arraylist = arraylist;
@@ -66,40 +69,39 @@ public class scheduleOfWeekAdapter extends BaseAdapter {
         //ánh xạ
         TextView ngay = view.findViewById(R.id.textview_ngay);
         ListView lv = view.findViewById(R.id.listMonHoc);
-        CardView expandable = view.findViewById(R.id.expandable);
-        LinearLayout area = view.findViewById(R.id.expandArea);
+        RelativeLayout expandable = view.findViewById(R.id.expandable);
+        TextView more = view.findViewById(R.id.viewMore);
 
-        List<scheduleModel> tmp = new ArrayList<>();
-        for (scheduleModel item:
+        List<ScheduleModel> tmp = new ArrayList<>();
+        for (ScheduleModel item:
                 arraylist) {
             if (getThu(Integer.valueOf(item.getThu())).equals(listThu.get(i))){
                 tmp.add(item);
             }
         }
-
         ngay.setText(listThu.get(i));
-
-        Animation anim = AnimationUtils.loadAnimation(context, R.anim.left_slide);
-//        view.startAnimation(anim);
-
-        scheduleOfDayAdapter adapter = new scheduleOfDayAdapter(viewGroup.getContext(), R.layout.item_schedule_day, tmp);
-        lv.setAdapter(adapter);
-
-        TextView more = view.findViewById(R.id.viewMore);
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(area.getVisibility() == View.GONE){
-                    more.setText("Thu gọn");
-                    TransitionManager.beginDelayedTransition(expandable, new AutoTransition());
-                    area.setVisibility(View.VISIBLE);
-                }else{
-                    more.setText("Xem thêm");
-                    TransitionManager.beginDelayedTransition(expandable, new AutoTransition());
-                    area.setVisibility(View.GONE);
+                if(tmp.size() > 0){
+                    if(lv.getVisibility() == View.GONE){
+                        more.setText("Thu gọn");
+                        TransitionManager.beginDelayedTransition(expandable, new AutoTransition());
+                        lv.setVisibility(View.VISIBLE);
+                    }else{
+                        more.setText("Xem thêm");
+                        TransitionManager.beginDelayedTransition(expandable, new AutoTransition());
+                        lv.setVisibility(View.GONE);
+                    }
+                }
+                else{
+                    Toast.makeText(view.getContext(), listThu.get(i) + " không có tiết học nào", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        ScheduleDayAdapter adapter = new ScheduleDayAdapter(viewGroup.getContext(), R.layout.item_schedule_day, tmp);
+        lv.setAdapter(adapter);
 
         return view;
     }

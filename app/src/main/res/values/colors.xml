@@ -13,7 +13,8 @@
     <color name="middle_color">#70A1FF</color>
     <color name="bg_color">#70A1FF</color>
     <color name="stroke">#B8D8FE</color>
-    <color name="light_red">#FFB9B9</color>
+    <color name="light_red">#FF8888</color>
+    <color name="red">#FF3737</color>
     <color name="grey">#959595</color>
     <color name="light_grey">#E6E6E6</color>
     <color name="description_grey">#6F6F6F</color>

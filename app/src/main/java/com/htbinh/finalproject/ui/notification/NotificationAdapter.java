@@ -19,9 +19,9 @@ import com.htbinh.finalproject.R;
 import java.util.List;
 
 public class NotificationAdapter extends BaseAdapter {
-private Context context;
-private int layout;
-private List<NotificationModel> arraylist;
+    private Context context;
+    private int layout;
+    private List<NotificationModel> arraylist;
 
     public NotificationAdapter(Context context, int layout, List<NotificationModel> arraylist) {
         this.context = context;
@@ -66,15 +66,9 @@ private List<NotificationModel> arraylist;
         ngaynhan.setText(THONGBAO.getNgaynhan());
         noidung.setText(THONGBAO.getNoidung());
 
-        Animation anim = AnimationUtils.loadAnimation(context, R.anim.left_slide);
-        view.startAnimation(anim);
-
-
-
         xemchitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if(itemnoidung.getVisibility() == View.GONE){
                     xemchitiet.setText("Thu gọn");
                     TransitionManager.beginDelayedTransition(itemThongbao, new AutoTransition());

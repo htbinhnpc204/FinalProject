@@ -1,4 +1,4 @@
-package com.htbinh.finalproject.ui.resultdetails;
+package com.htbinh.finalproject.ui.result.resultdetails;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -30,20 +30,10 @@ public class ResultDetailsFragment extends Fragment {
         final ListView listView = binding.resultdetailsList;
 
         TextView tv = binding.txtHocKy;
-        tv.setText(tv.getText() + getArguments().getString("name"));
+        tv.setText(tv.getText() + getArguments().getString("hocKy"));
 
-        resultDetailsModelArrayList = new ArrayList<>();
+        resultDetailsModelArrayList = getArguments().getParcelableArrayList("list");
 
-        resultDetailsModelArrayList.add(new ResultDetailsModel("Kinh tế chính trị 500231", "500231", "8,0",
-                "8.0", "7.0", "10 ","8","A"));
-        resultDetailsModelArrayList.add(new ResultDetailsModel("Lập trình web nâng cao ", "500231", "8,0",
-                "8.0", "7.0", "8.5", "A","A"));
-        resultDetailsModelArrayList.add(new ResultDetailsModel("Tin học đại cương ","500231", "2", "8,0",
-                "8.0", "7.0", "8.2", "B"));
-        resultDetailsModelArrayList.add(new ResultDetailsModel("Kinh tế chính trị","500231", "2", "8,0",
-                "8.0", "7.0", "8.2", "B"));
-        resultDetailsModelArrayList.add(new ResultDetailsModel("Kinh tế chính trị ","500231", "2", "8,0",
-                "8.0", "7.0", "8.2", "B"));
         adapter = new ResultDetailsAdapter(container.getContext(), R.layout.item_chitietketqua,resultDetailsModelArrayList);
         listView.setAdapter(adapter);
 

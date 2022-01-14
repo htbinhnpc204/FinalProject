@@ -1,13 +1,13 @@
 package com.htbinh.finalproject.ui.schedule;
 
-public class scheduleModel {
+public class ScheduleModel {
     private String thu;
     private String monhoc;
     private String tiet;
     private String gv;
     private String phong;
 
-    public scheduleModel(String thu, String monhoc, String tiet, String gv, String phong) {
+    public ScheduleModel(String thu, String monhoc, String tiet, String gv, String phong) {
         this.thu = thu;
         this.monhoc = monhoc;
         this.tiet = tiet;

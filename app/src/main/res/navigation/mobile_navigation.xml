@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_schedule"
-        android:name="com.htbinh.finalproject.ui.schedule.scheduleFragment"
+        android:name="com.htbinh.finalproject.ui.schedule.ScheduleFragment"
         android:label="Thời khóa biểu"
         tools:layout="@layout/fragment_schedule" />
 
@@ -57,7 +57,7 @@
 
     <fragment
         android:id="@+id/nav_resultdetails"
-        android:name="com.htbinh.finalproject.ui.resultdetails.ResultDetailsFragment"
+        android:name="com.htbinh.finalproject.ui.result.resultdetails.ResultDetailsFragment"
         android:label="Chi tiết kết quả học tập"
         tools:layout="@layout/fragment_resultdetails" />
 

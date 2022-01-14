@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.htbinh.finalproject.Dialog.LoadingDialog;
 import com.htbinh.finalproject.R;
 import com.htbinh.finalproject.Services.PicassoImageGetter;
 import com.htbinh.finalproject.Services.SessionServices;
@@ -34,6 +35,7 @@ public class NewsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         binding = FragmentNewsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -42,7 +44,6 @@ public class NewsFragment extends Fragment {
         }
         else{
             newsModel = new ArrayList<>();
-            Toast.makeText(getContext(), "List is null", Toast.LENGTH_SHORT).show();
         }
 
         final ListView listView = binding.listNews;
@@ -55,17 +56,21 @@ public class NewsFragment extends Fragment {
                 sendBundle.putString("title", newsModel.get(i).getTitle());
                 String api = "https://studentapp-backend.herokuapp.com/getNewsDetails?URL=";
                 RequestQueue queue = Volley.newRequestQueue(getActivity());
+                final LoadingDialog loading = new LoadingDialog(getActivity());
+                loading.startLoading();
 
                 StringRequest html = new StringRequest(Request.Method.GET, api + newsModel.get(i).getDetailsLink(), new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        loading.dismissLoading();
                         sendBundle.putString("html", response);
                         Navigation.findNavController(view).navigate(R.id.nav_newsdetails, sendBundle);
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        sendBundle.putString("html","Lỗi không thể hiển thị.\n" + error.toString());
+                        loading.dismissLoading();
+                        Toast.makeText(getContext(), "Gặp lỗi khi tải tin tức, vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
                     }
                 });
 

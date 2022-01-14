@@ -1,49 +1,41 @@
-package com.htbinh.finalproject.ui.schedule;
+package com.htbinh.finalproject.ui.schedule.Week;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
 
-import com.htbinh.finalproject.R;
 import com.htbinh.finalproject.Services.SessionServices;
+import com.htbinh.finalproject.R;
+import com.htbinh.finalproject.ui.schedule.ScheduleModel;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DayFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class DayFragment extends ListFragment {
+public class ScheduleWeekFragment extends ListFragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    ArrayList<scheduleModel> listTKB;
-    scheduleOfDayAdapter adapter;
+    ArrayList<ScheduleModel> listTKB;
+    ScheduleWeekAdapter adapter;
+    private List<String> listThu;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public DayFragment() {
+    public ScheduleWeekFragment() {
         // Required empty public constructor
     }
 
-
     // TODO: Rename and change types and number of parameters
-    public static DayFragment newInstance(String param1, String param2) {
-        DayFragment fragment = new DayFragment();
+    public static ScheduleWeekFragment newInstance(String param1, String param2) {
+        ScheduleWeekFragment fragment = new ScheduleWeekFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,6 +55,15 @@ public class DayFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        listThu = new ArrayList<>();
+        listThu.add("Thứ 2");
+        listThu.add("Thứ 3");
+        listThu.add("Thứ 4");
+        listThu.add("Thứ 5");
+        listThu.add("Thứ 6");
+        listThu.add("Thứ 7");
+        listThu.add("Chủ nhật");
+
         if(SessionServices.getListSchedule() != null){
             listTKB = SessionServices.getListSchedule();
         }
@@ -71,24 +72,10 @@ public class DayFragment extends ListFragment {
             Toast.makeText(getContext(), "List is null", Toast.LENGTH_SHORT).show();
         }
 
-        ArrayList<scheduleModel> tmp = new ArrayList<>();
-
-        for (scheduleModel item:
-             listTKB) {
-            if(getDayOfWeek() == Integer.valueOf(item.getThu())){
-                tmp.add(item);
-            }
-        }
-
-        adapter = new scheduleOfDayAdapter(getActivity(), R.layout.item_schedule_day, tmp);
+        adapter = new ScheduleWeekAdapter(getActivity(), R.layout.item_schedule_week, listTKB, listThu);
         setListAdapter(adapter);
 
-        return inflater.inflate(R.layout.fragment_schedule_day, container, false);
-    }
-
-    private int getDayOfWeek(){
-        Calendar c = Calendar.getInstance();
-        c.setTime(new Date());
-        return c.get(Calendar.DAY_OF_WEEK);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_schedule_week, container, false);
     }
 }
