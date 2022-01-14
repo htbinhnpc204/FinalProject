@@ -188,185 +188,185 @@ public class LoginActivity extends AppCompatActivity {
         //Make all request here !!
         //region Request
 
-        ArrayList<ResultModel> result = new ArrayList<>();
-        JsonArrayRequest resultRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, resultURL, msv), null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject obj = response.getJSONObject(i);
-                                result.add(new ResultModel(
-                                        obj.getString("hocKy"),
-                                        obj.getString("soTcTichLuy"),
-                                        obj.getString("xepLoai"),
-                                        obj.getString("diemTbcHocKy"),
-                                        obj.getString("diemTbcHocBong")
-                                ));
-                            } catch (JSONException e) {
-
-                            }
-                        }
-                        SessionServices.setListResult(result);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        result.clear();
-                    }
-                });
-
-        //notification
-        ArrayList<NotificationModel> notification = new ArrayList<>();
-        JsonArrayRequest notificationRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, notificationURL, msv), null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        if(response.length() > 0){
-                            Toast.makeText(getApplicationContext(), "Bạn có: " + response.length() + " thông báo từ giảng viên", Toast.LENGTH_SHORT).show();
-                        }
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject obj = response.getJSONObject(i);
-                                notification.add(new NotificationModel(
-                                        obj.getString("from"),
-                                        obj.getString("toClasses"),
-                                        obj.getString("date"),
-                                        obj.getString("details")
-                                ));
-                            } catch (JSONException e) {
-                            }
-                        }
-                        SessionServices.setListNotification(notification);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "Notification could not be loaded!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-        //tuitionfee
-        ArrayList<TuitionfeeModel> tuitionfee = new ArrayList<>();
-        JsonArrayRequest tuitionfeeRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, tuitionURL, msv), null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject obj = response.getJSONObject(i);
-                                tuitionfee.add(new TuitionfeeModel(
-                                        obj.getString("hocKy"),
-                                        obj.getString("soTinChi"),
-                                        obj.getString("hocPhi"),
-                                        obj.getString("noKyTruoc"),
-                                        obj.getString("duKyTruoc"),
-                                        obj.getString("tong")
-                                ));
-                            } catch (JSONException e) {
-                            }
-                        }
-                        SessionServices.setListTuition(tuitionfee);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "Tuition could not be loaded!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
-        ArrayList<ExamScheduleModel> examScheduleModels = new ArrayList<>();
-        JsonArrayRequest examScheduleRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, examScheduleURL, msv), null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject obj = response.getJSONObject(i);
-                                examScheduleModels.add(new ExamScheduleModel(
-                                        obj.getString("ngayThi"),
-                                        obj.getString("tenLopHp"),
-                                        obj.getString("tenHp"),
-                                        obj.getString("giangVien"),
-                                        obj.getString("gioThi"),
-                                        obj.getString("phongThi")
-                                ));
-                            } catch (JSONException e) {
-                                examScheduleModels.clear();
-                            }
-                        }
-                        SessionServices.setListExamSchedule(examScheduleModels);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        examScheduleModels.clear();
-                    }
-                });
-
-        JsonObjectRequest personInfoRequest = new JsonObjectRequest(Request.Method.GET, getLink(baseURL, personInfoURL, msv), null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        StudentModel personInfoModel = null;
-                        try {
-                            personInfoModel = new StudentModel(
-                                    response.getString("ma_sv"),
-                                    response.getString("ten_sv"),
-                                    response.getString("lop"),
-                                    response.getString("nganh"),
-                                    response.getString("khoa"),
-                                    response.getString("ngaySinh"),
-                                    response.getString("soCMND"),
-                                    response.getString("noiSinh"),
-                                    response.getString("soDienThoai"),
-                                    response.getString("email"),
-                                    response.getString("avatarLink")
-                            );
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        SessionServices.setPersonInfoModel(personInfoModel);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "Error when getting information!!", Toast.LENGTH_LONG);
-                    }
-                });
-
-        ArrayList<ScheduleModel> schedule = new ArrayList<>();
-        JsonArrayRequest scheduleRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, scheduleURL, msv), null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject obj = response.getJSONObject(i);
-                                schedule.add(new ScheduleModel(
-                                        obj.getString("thu"),
-                                        obj.getString("tenHp"),
-                                        obj.getString("tiet"),
-                                        obj.getString("giangVien"),
-                                        obj.getString("phong")
-                                ));
-                            } catch (JSONException e) {
-
-                            }
-                        }
-                        SessionServices.setListSchedule(schedule);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-            }
-        });
+//        ArrayList<ResultModel> result = new ArrayList<>();
+//        JsonArrayRequest resultRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, resultURL, msv), null,
+//                new Response.Listener<JSONArray>() {
+//                    @Override
+//                    public void onResponse(JSONArray response) {
+//                        for (int i = 0; i < response.length(); i++) {
+//                            try {
+//                                JSONObject obj = response.getJSONObject(i);
+//                                result.add(new ResultModel(
+//                                        obj.getString("hocKy"),
+//                                        obj.getString("soTcTichLuy"),
+//                                        obj.getString("xepLoai"),
+//                                        obj.getString("diemTbcHocKy"),
+//                                        obj.getString("diemTbcHocBong")
+//                                ));
+//                            } catch (JSONException e) {
+//
+//                            }
+//                        }
+//                        SessionServices.setListResult(result);
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        result.clear();
+//                    }
+//                });
+//
+//        //notification
+//        ArrayList<NotificationModel> notification = new ArrayList<>();
+//        JsonArrayRequest notificationRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, notificationURL, msv), null,
+//                new Response.Listener<JSONArray>() {
+//                    @Override
+//                    public void onResponse(JSONArray response) {
+//                        if(response.length() > 0){
+//                            Toast.makeText(getApplicationContext(), "Bạn có: " + response.length() + " thông báo từ giảng viên", Toast.LENGTH_SHORT).show();
+//                        }
+//                        for (int i = 0; i < response.length(); i++) {
+//                            try {
+//                                JSONObject obj = response.getJSONObject(i);
+//                                notification.add(new NotificationModel(
+//                                        obj.getString("from"),
+//                                        obj.getString("toClasses"),
+//                                        obj.getString("date"),
+//                                        obj.getString("details")
+//                                ));
+//                            } catch (JSONException e) {
+//                            }
+//                        }
+//                        SessionServices.setListNotification(notification);
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Toast.makeText(getApplicationContext(), "Notification could not be loaded!", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//        //tuitionfee
+//        ArrayList<TuitionfeeModel> tuitionfee = new ArrayList<>();
+//        JsonArrayRequest tuitionfeeRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, tuitionURL, msv), null,
+//                new Response.Listener<JSONArray>() {
+//                    @Override
+//                    public void onResponse(JSONArray response) {
+//                        for (int i = 0; i < response.length(); i++) {
+//                            try {
+//                                JSONObject obj = response.getJSONObject(i);
+//                                tuitionfee.add(new TuitionfeeModel(
+//                                        obj.getString("hocKy"),
+//                                        obj.getString("soTinChi"),
+//                                        obj.getString("hocPhi"),
+//                                        obj.getString("noKyTruoc"),
+//                                        obj.getString("duKyTruoc"),
+//                                        obj.getString("tong")
+//                                ));
+//                            } catch (JSONException e) {
+//                            }
+//                        }
+//                        SessionServices.setListTuition(tuitionfee);
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Toast.makeText(getApplicationContext(), "Tuition could not be loaded!", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//
+//        ArrayList<ExamScheduleModel> examScheduleModels = new ArrayList<>();
+//        JsonArrayRequest examScheduleRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, examScheduleURL, msv), null,
+//                new Response.Listener<JSONArray>() {
+//                    @Override
+//                    public void onResponse(JSONArray response) {
+//                        for (int i = 0; i < response.length(); i++) {
+//                            try {
+//                                JSONObject obj = response.getJSONObject(i);
+//                                examScheduleModels.add(new ExamScheduleModel(
+//                                        obj.getString("ngayThi"),
+//                                        obj.getString("tenLopHp"),
+//                                        obj.getString("tenHp"),
+//                                        obj.getString("giangVien"),
+//                                        obj.getString("gioThi"),
+//                                        obj.getString("phongThi")
+//                                ));
+//                            } catch (JSONException e) {
+//                                examScheduleModels.clear();
+//                            }
+//                        }
+//                        SessionServices.setListExamSchedule(examScheduleModels);
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        examScheduleModels.clear();
+//                    }
+//                });
+//
+//        JsonObjectRequest personInfoRequest = new JsonObjectRequest(Request.Method.GET, getLink(baseURL, personInfoURL, msv), null,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        StudentModel personInfoModel = null;
+//                        try {
+//                            personInfoModel = new StudentModel(
+//                                    response.getString("ma_sv"),
+//                                    response.getString("ten_sv"),
+//                                    response.getString("lop"),
+//                                    response.getString("nganh"),
+//                                    response.getString("khoa"),
+//                                    response.getString("ngaySinh"),
+//                                    response.getString("soCMND"),
+//                                    response.getString("noiSinh"),
+//                                    response.getString("soDienThoai"),
+//                                    response.getString("email"),
+//                                    response.getString("avatarLink")
+//                            );
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                        SessionServices.setPersonInfoModel(personInfoModel);
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Toast.makeText(getApplicationContext(), "Error when getting information!!", Toast.LENGTH_LONG);
+//                    }
+//                });
+//
+//        ArrayList<ScheduleModel> schedule = new ArrayList<>();
+//        JsonArrayRequest scheduleRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, scheduleURL, msv), null,
+//                new Response.Listener<JSONArray>() {
+//                    @Override
+//                    public void onResponse(JSONArray response) {
+//                        for (int i = 0; i < response.length(); i++) {
+//                            try {
+//                                JSONObject obj = response.getJSONObject(i);
+//                                schedule.add(new ScheduleModel(
+//                                        obj.getString("thu"),
+//                                        obj.getString("tenHp"),
+//                                        obj.getString("tiet"),
+//                                        obj.getString("giangVien"),
+//                                        obj.getString("phong")
+//                                ));
+//                            } catch (JSONException e) {
+//
+//                            }
+//                        }
+//                        SessionServices.setListSchedule(schedule);
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//            }
+//        });
 
         ArrayList<NewsModel> news = new ArrayList<>();
         JsonArrayRequest newsRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, newsURL, msv), null,
@@ -405,12 +405,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 if (response.equals("true")) {
                     queue.add(newsRequest);
-                    queue.add(personInfoRequest);
-                    queue.add(scheduleRequest);
-                    queue.add(examScheduleRequest);
-                    queue.add(tuitionfeeRequest);
-                    queue.add(notificationRequest);
-                    queue.add(resultRequest);
+//                    queue.add(personInfoRequest);
+//                    queue.add(scheduleRequest);
+//                    queue.add(examScheduleRequest);
+//                    queue.add(tuitionfeeRequest);
+//                    queue.add(notificationRequest);
+//                    queue.add(resultRequest);
                 } else {
                     loading.dismissLoading();
                     Toast.makeText(getApplicationContext(), "Tài khoản hoặc mật khẩu không chính xác!"
@@ -456,6 +456,10 @@ public class LoginActivity extends AppCompatActivity {
     private String getLink(String base, String api, String msv) {
         return base + api + "?SessionID=" + msv;
     }
+
+//    private String getLink(String base, String api, String msv) {
+//        return base + api + "?SessionID=" + msv;
+//    }
 
     //exit by double tap
     @Override
