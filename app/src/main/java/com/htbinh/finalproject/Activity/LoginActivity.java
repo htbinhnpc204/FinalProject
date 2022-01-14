@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -27,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -70,13 +72,13 @@ public class LoginActivity extends AppCompatActivity {
     //region APIlink
     private final String baseURL = "https://studentapp-backend.herokuapp.com/";
     private final String loginURL = "login";
-    private final String personInfoURL = "sinhvien/getinfo";
+    private final String personInfoURL = "sinhvien/info/";
     private final String scheduleURL = "sinhvien/gettkb";
     private final String newsURL = "getNews";
     private final String resultURL = "sinhvien/kqhoctap";
     private final String notificationURL = "sinhvien/getnoti";
     private final String tuitionURL = "sinhvien/getfee";
-    private final String examScheduleURL = "sinhvien/lichthi";
+    private final String examScheduleURL = "sinhvien/examSchedule/";
     //endregion
 
     Animation topAnimation;
@@ -279,67 +281,72 @@ public class LoginActivity extends AppCompatActivity {
 //                });
 //
 //
-//        ArrayList<ExamScheduleModel> examScheduleModels = new ArrayList<>();
-//        JsonArrayRequest examScheduleRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, examScheduleURL, msv), null,
-//                new Response.Listener<JSONArray>() {
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//                        for (int i = 0; i < response.length(); i++) {
-//                            try {
-//                                JSONObject obj = response.getJSONObject(i);
-//                                examScheduleModels.add(new ExamScheduleModel(
-//                                        obj.getString("ngayThi"),
-//                                        obj.getString("tenLopHp"),
-//                                        obj.getString("tenHp"),
-//                                        obj.getString("giangVien"),
-//                                        obj.getString("gioThi"),
-//                                        obj.getString("phongThi")
-//                                ));
-//                            } catch (JSONException e) {
-//                                examScheduleModels.clear();
-//                            }
-//                        }
-//                        SessionServices.setListExamSchedule(examScheduleModels);
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        examScheduleModels.clear();
-//                    }
-//                });
-//
-//        JsonObjectRequest personInfoRequest = new JsonObjectRequest(Request.Method.GET, getLink(baseURL, personInfoURL, msv), null,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        StudentModel personInfoModel = null;
-//                        try {
-//                            personInfoModel = new StudentModel(
-//                                    response.getString("ma_sv"),
-//                                    response.getString("ten_sv"),
-//                                    response.getString("lop"),
-//                                    response.getString("nganh"),
-//                                    response.getString("khoa"),
-//                                    response.getString("ngaySinh"),
-//                                    response.getString("soCMND"),
-//                                    response.getString("noiSinh"),
-//                                    response.getString("soDienThoai"),
-//                                    response.getString("email"),
-//                                    response.getString("avatarLink")
-//                            );
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                        SessionServices.setPersonInfoModel(personInfoModel);
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(getApplicationContext(), "Error when getting information!!", Toast.LENGTH_LONG);
-//                    }
-//                });
+        ArrayList<ExamScheduleModel> examScheduleModels = new ArrayList<>();
+        JsonArrayRequest examScheduleRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, examScheduleURL, msv), null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                examScheduleModels.add(new ExamScheduleModel(
+                                        obj.getString("ngaythi"),
+                                        obj.getString("tenlhp"),
+                                        obj.getString("tenhp"),
+                                        obj.getString("giangvien"),
+                                        obj.getString("giothi"),
+                                        obj.getString("phongthi")
+                                ));
+                            } catch (JSONException e) {
+                                examScheduleModels.clear();
+                            }
+                        }
+                        SessionServices.setListExamSchedule(examScheduleModels);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        examScheduleModels.clear();
+                    }
+                });
+
+        JsonObjectRequest personInfoRequest = new JsonObjectRequest(Request.Method.GET, getLink(baseURL, personInfoURL, msv), null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.e("Info log", "" + response.toString());
+                        StudentModel personInfoModel = null;
+                        try {
+                            personInfoModel = new StudentModel(
+                                    response.getString("ma_sv"),
+                                    response.getString("ten_sv"),
+                                    response.getString("lop"),
+                                    response.getString("nganh"),
+                                    response.getString("ngaySinh"),
+                                    response.getString("soCMND"),
+                                    response.getString("noiSinh"),
+                                    response.getString("soDienThoai"),
+                                    response.getString("email")
+                            );
+                        } catch (JSONException e) {
+                            Log.e("Info log", "" + e.toString());
+                        }
+                        SessionServices.setPersonInfoModel(personInfoModel);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("Info log", "" + error.toString());
+
+                        Toast.makeText(getApplicationContext(), "Error when getting information!!", Toast.LENGTH_LONG);
+                    }
+                });
+        personInfoRequest.setRetryPolicy(new DefaultRetryPolicy(
+                30000, //set timeout 30s
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 //
 //        ArrayList<ScheduleModel> schedule = new ArrayList<>();
 //        JsonArrayRequest scheduleRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, scheduleURL, msv), null,
@@ -369,7 +376,7 @@ public class LoginActivity extends AppCompatActivity {
 //        });
 
         ArrayList<NewsModel> news = new ArrayList<>();
-        JsonArrayRequest newsRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, newsURL, msv), null,
+        JsonArrayRequest newsRequest = new JsonArrayRequest(Request.Method.GET, baseURL + newsURL, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -405,9 +412,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 if (response.equals("true")) {
                     queue.add(newsRequest);
-//                    queue.add(personInfoRequest);
+                    queue.add(personInfoRequest);
 //                    queue.add(scheduleRequest);
-//                    queue.add(examScheduleRequest);
+                    queue.add(examScheduleRequest);
 //                    queue.add(tuitionfeeRequest);
 //                    queue.add(notificationRequest);
 //                    queue.add(resultRequest);
@@ -452,9 +459,9 @@ public class LoginActivity extends AppCompatActivity {
                     , Toast.LENGTH_SHORT).show();
         }
     }
-
+//ua sao day
     private String getLink(String base, String api, String msv) {
-        return base + api + "?SessionID=" + msv;
+        return base + api + msv;
     }
 
 //    private String getLink(String base, String api, String msv) {

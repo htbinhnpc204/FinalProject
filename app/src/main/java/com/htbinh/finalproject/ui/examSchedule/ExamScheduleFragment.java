@@ -1,6 +1,7 @@
 package com.htbinh.finalproject.ui.examSchedule;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,10 @@ public class ExamScheduleFragment extends Fragment {
             examScheduleModels = new ArrayList<>();
             header.setVisibility(View.GONE);
             tvthongbao.setVisibility(View.VISIBLE);
+
         }
+
+        Log.e("ExamSchedule 2 log", "" + SessionServices.getListExamSchedule());
 
         final ListView listView = binding.listExSchedule;
         adapter = new ExamScheduleAdapter(container.getContext(),R.layout.item_exam_schedule,examScheduleModels);
