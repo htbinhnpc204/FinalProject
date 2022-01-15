@@ -53,7 +53,7 @@ public class ResultAdapter extends BaseAdapter {
 
         ResultModel ketqua = ketquaList.get(i);
 
-        hocky.setText(ketqua.getHocky());
+        hocky.setText("Mã học kỳ: " + ketqua.getHocky());
         soTcTichLuy.setText(ketqua.getSoTcTichLuy());
         xeploai.setText(ketqua.getXeploai());
         diemTbcHocKy.setText(ketqua.getDiemTbcHocKy());

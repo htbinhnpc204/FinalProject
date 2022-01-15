@@ -70,7 +70,6 @@ public class LoginActivity extends AppCompatActivity {
     //endregion
 
     //region APIlink
-
     private final String baseURL = "https://studentapp-backend.herokuapp.com/";
     private final String loginURL = "login";
     private final String personInfoURL = "sinhvien/info/";
@@ -191,8 +190,6 @@ public class LoginActivity extends AppCompatActivity {
 
         //Make all request here !!
         //region Request
-        //notification
-
         //tuitionfee
         ArrayList<TuitionfeeModel> tuitionfee = new ArrayList<>();
         JsonArrayRequest tuitionfeeRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, tuitionURL, msv), null,
@@ -223,34 +220,37 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
 
-//        ArrayList<ResultModel> result = new ArrayList<>();
-//        JsonArrayRequest resultRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, resultURL, msv), null,
-//                new Response.Listener<JSONArray>() {
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//                        for (int i = 0; i < response.length(); i++) {
-//                            try {
-//                                JSONObject obj = response.getJSONObject(i);
-//                                result.add(new ResultModel(
-//                                        obj.getString("hocKy"),
-//                                        obj.getString("soTcTichLuy"),
-//                                        obj.getString("xepLoai"),
-//                                        obj.getString("diemTbcHocKy"),
-//                                        obj.getString("diemTbcHocBong")
-//                                ));
-//                            } catch (JSONException e) {
-//
-//                            }
-//                        }
-//                        SessionServices.setListResult(result);
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
+        ArrayList<ResultModel> result = new ArrayList<>();
+        JsonArrayRequest resultRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, resultURL, msv), null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.e("Result request", "" + response.toString());
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                result.add(new ResultModel(
+                                        obj.getString("hocKy"),
+                                        obj.getString("soTcTichLuy"),
+                                        obj.getString("xepLoai"),
+                                        obj.getString("diemTbcHocKy"),
+                                        obj.getString("diemTbcHocBong")
+                                ));
+                            } catch (JSONException e) {
+                                Log.e("Result request", "obj error");
+                            }
+                        }
+                        SessionServices.setListResult(result);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 //                        result.clear();
-//                    }
-//                });
+                        Log.e("Result request", "" + error.toString());
+
+                    }
+                });
 //
 //        //notification
 //        ArrayList<NotificationModel> notification = new ArrayList<>();
@@ -318,7 +318,6 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.e("Info log", "" + response.toString());
                         StudentModel personInfoModel = null;
                         try {
                             personInfoModel = new StudentModel(
@@ -343,8 +342,6 @@ public class LoginActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("Info log", "" + error.toString());
-
                         Toast.makeText(getApplicationContext(), "Error when getting information!!", Toast.LENGTH_LONG);
                     }
                 });
@@ -352,7 +349,11 @@ public class LoginActivity extends AppCompatActivity {
                 30000, //set timeout 30s
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-//
+        resultRequest.setRetryPolicy(new DefaultRetryPolicy(
+                30000, //set timeout 30s
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
 //        ArrayList<ScheduleModel> schedule = new ArrayList<>();
 //        JsonArrayRequest scheduleRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, scheduleURL, msv), null,
 //                new Response.Listener<JSONArray>() {
@@ -409,7 +410,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         ArrayList<NewsModel> news = new ArrayList<>();
-        JsonArrayRequest newsRequest = new JsonArrayRequest(Request.Method.GET, baseURL + newsURL, null,
+        JsonArrayRequest newsRequest = new JsonArrayRequest(Request.Method.GET, baseURL+ newsURL, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -446,8 +447,8 @@ public class LoginActivity extends AppCompatActivity {
                     queue.add(examScheduleRequest);
                     queue.add(tuitionfeeRequest);
                     queue.add(personInfoRequest);
+                    queue.add(resultRequest);
 //                    queue.add(notificationRequest);
-//                    queue.add(resultRequest);
                 } else {
                     loading.dismissLoading();
                     Toast.makeText(getApplicationContext(), "Tài khoản hoặc mật khẩu không chính xác!"
@@ -490,7 +491,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    //ua sao day
     private String getLink(String base, String api, String msv) {
         return base + api + msv;
     }
