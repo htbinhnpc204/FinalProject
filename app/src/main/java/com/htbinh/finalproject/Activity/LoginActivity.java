@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private final String baseURL = "https://studentapp-backend.herokuapp.com/";
     private final String loginURL = "login";
-    private final String personInfoURL = "sinhvien/info/";
+    private final String personInfoURL = "sinhvien/getinfo";
     private final String scheduleURL = "sinhvien/schedule/";
     private final String newsURL = "getNews";
     private final String resultURL = "sinhvien/hkresult/";
@@ -406,6 +406,34 @@ public class LoginActivity extends AppCompatActivity {
 //            }
 //        });
 
+        ArrayList<ScheduleModel> schedule = new ArrayList<>();
+        JsonArrayRequest scheduleRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, scheduleURL, msv), null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                schedule.add(new ScheduleModel(
+                                        obj.getString("thu"),
+                                        obj.getString("tenHp"),
+                                        obj.getString("tiet"),
+                                        obj.getString("giangVien"),
+                                        obj.getString("phong")
+                                ));
+                            } catch (JSONException e) {
+
+                            }
+                        }
+                        SessionServices.setListSchedule(schedule);
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+
         ArrayList<NewsModel> news = new ArrayList<>();
         JsonArrayRequest newsRequest = new JsonArrayRequest(Request.Method.GET, baseURL + newsURL, null,
                 new Response.Listener<JSONArray>() {
@@ -444,9 +472,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.equals("true")) {
                     queue.add(newsRequest);
                     queue.add(personInfoRequest);
-//                    queue.add(scheduleRequest);
+                    queue.add(scheduleRequest);
                     queue.add(examScheduleRequest);
-//                    queue.add(tuitionfeeRequest);
+                    queue.add(tuitionfeeRequest);
 //                    queue.add(notificationRequest);
 //                    queue.add(resultRequest);
                 } else {
