@@ -1,6 +1,7 @@
 package com.htbinh.finalproject.ui.schedule.Day;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,7 +74,7 @@ public class ScheduleDayFragment extends ListFragment {
 
         for (ScheduleModel item:
              listTKB) {
-            if(getDayOfWeek() == Integer.valueOf(item.getThu())){
+            if(getDayOfWeek().equals(item.getThu())){
                 tmp.add(item);
             }
         }
@@ -84,9 +85,9 @@ public class ScheduleDayFragment extends ListFragment {
         return inflater.inflate(R.layout.fragment_schedule_day, container, false);
     }
 
-    private int getDayOfWeek(){
+    private String getDayOfWeek(){
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
-        return c.get(Calendar.DAY_OF_WEEK);
+        return c.get(Calendar.DAY_OF_WEEK) == 0 ? "Chủ nhật" : "Thứ " + c.get(Calendar.DAY_OF_WEEK);
     }
 }

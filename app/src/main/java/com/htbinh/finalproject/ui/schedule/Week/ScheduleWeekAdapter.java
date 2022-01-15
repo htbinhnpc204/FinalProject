@@ -75,7 +75,7 @@ public class ScheduleWeekAdapter extends BaseAdapter {
         List<ScheduleModel> tmp = new ArrayList<>();
         for (ScheduleModel item:
                 arraylist) {
-            if (getThu(Integer.valueOf(item.getThu())).equals(listThu.get(i))){
+            if (item.getThu().equals(listThu.get(i))){
                 tmp.add(item);
             }
         }
@@ -106,18 +106,18 @@ public class ScheduleWeekAdapter extends BaseAdapter {
         return view;
     }
 
-    private String getThu(int date){
-        switch (date){
-            case 1: return "Chủ nhật";
-            case 2: return "Thứ 2";
-            case 3: return "Thứ 3";
-            case 4: return "Thứ 4";
-            case 5: return "Thứ 5";
-            case 6: return "Thứ 6";
-            case 7: return "Thứ 7";
-            default: return "None";
-        }
-    }
+//    private String getThu(int date){
+//        switch (date){
+//            case 1: return "Chủ nhật";
+//            case 2: return "Thứ 2";
+//            case 3: return "Thứ 3";
+//            case 4: return "Thứ 4";
+//            case 5: return "Thứ 5";
+//            case 6: return "Thứ 6";
+//            case 7: return "Thứ 7";
+//            default: return "None";
+//        }
+//    }
 
     private int getDayOfWeek(String sDate){
         Calendar c = Calendar.getInstance();

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -27,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -71,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
     private final String baseURL = "https://studentapp-backend.herokuapp.com/";
     private final String loginURL = "login";
     private final String personInfoURL = "sinhvien/getinfo";
-    private final String scheduleURL = "sinhvien/gettkb";
+    private final String scheduleURL = "sinhvien/schedule/";
     private final String newsURL = "getNews";
     private final String resultURL = "sinhvien/kqhoctap";
     private final String notificationURL = "sinhvien/getnoti";
@@ -368,8 +370,36 @@ public class LoginActivity extends AppCompatActivity {
 //            }
 //        });
 
+        ArrayList<ScheduleModel> schedule = new ArrayList<>();
+        JsonArrayRequest scheduleRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, scheduleURL, msv), null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                schedule.add(new ScheduleModel(
+                                        obj.getString("thu"),
+                                        obj.getString("tenHp"),
+                                        obj.getString("tiet"),
+                                        obj.getString("giangVien"),
+                                        obj.getString("phong")
+                                ));
+                            } catch (JSONException e) {
+
+                            }
+                        }
+                        SessionServices.setListSchedule(schedule);
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+
         ArrayList<NewsModel> news = new ArrayList<>();
-        JsonArrayRequest newsRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, newsURL, msv), null,
+        JsonArrayRequest newsRequest = new JsonArrayRequest(Request.Method.GET, baseURL + newsURL, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -406,7 +436,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.equals("true")) {
                     queue.add(newsRequest);
 //                    queue.add(personInfoRequest);
-//                    queue.add(scheduleRequest);
+                    queue.add(scheduleRequest);
 //                    queue.add(examScheduleRequest);
 //                    queue.add(tuitionfeeRequest);
 //                    queue.add(notificationRequest);
@@ -454,7 +484,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private String getLink(String base, String api, String msv) {
-        return base + api + "?SessionID=" + msv;
+        return base + api + msv;
     }
 
 //    private String getLink(String base, String api, String msv) {
