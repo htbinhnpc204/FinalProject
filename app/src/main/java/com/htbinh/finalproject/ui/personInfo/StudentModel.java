@@ -2,22 +2,19 @@ package com.htbinh.finalproject.ui.personInfo;
 
 
 public class StudentModel {
-    private String ma_sv, ten_sv, lop, nganh, khoa;
+    private String ma_sv, ten_sv, lop, nganh;
     private String ngaySinh, soCMND, noiSinh, soDienThoai, Email;
-    private String avatarLink;
 
-    public StudentModel(String ma_sv, String ten_sv, String lop, String nganh, String khoa, String ngaySinh, String soCMND, String noiSinh, String soDienThoai, String email, String avatarLink) {
+    public StudentModel(String ma_sv, String ten_sv, String lop, String nganh, String ngaySinh, String soCMND, String noiSinh, String soDienThoai, String email) {
         this.ma_sv = ma_sv;
         this.ten_sv = ten_sv;
         this.lop = lop;
         this.nganh = nganh;
-        this.khoa = khoa;
         this.ngaySinh = ngaySinh;
         this.soCMND = soCMND;
         this.noiSinh = noiSinh;
         this.soDienThoai = soDienThoai;
-        Email = email;
-        this.avatarLink = avatarLink;
+        this.Email = email;
     }
 
     public String getMa_sv() {
@@ -50,14 +47,6 @@ public class StudentModel {
 
     public void setNganh(String nganh) {
         this.nganh = nganh;
-    }
-
-    public String getKhoa() {
-        return khoa;
-    }
-
-    public void setKhoa(String khoa) {
-        this.khoa = khoa;
     }
 
     public String getNgaySinh() {
@@ -98,13 +87,5 @@ public class StudentModel {
 
     public void setEmail(String email) {
         Email = email;
-    }
-
-    public String getAvatarLink() {
-        return avatarLink;
-    }
-
-    public void setAvatarLink(String avatarLink) {
-        this.avatarLink = avatarLink;
     }
 }
