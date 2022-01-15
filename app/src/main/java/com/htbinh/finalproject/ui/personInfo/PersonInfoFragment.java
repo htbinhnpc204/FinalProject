@@ -40,7 +40,7 @@ public class PersonInfoFragment extends Fragment {
         final EditText stdPoB = binding.edtpob;
         final EditText stdPhone = binding.edtPhone;
         final EditText stdEmail = binding.edtEmail;
-        final CircleImageView img = binding.imgvAvt;
+//        final CircleImageView img = binding.imgvAvt;
 
         if(SessionServices.getPersonInfoModel() != null){
             personInfoModel = SessionServices.getPersonInfoModel();
@@ -51,7 +51,6 @@ public class PersonInfoFragment extends Fragment {
             stdPoB.setText(personInfoModel.getNoiSinh());
             stdEmail.setText(personInfoModel.getEmail());
 
-            Picasso.get().load(personInfoModel.getAvatarLink()).fit().into(img);
         }
         else{
             Toast.makeText(getContext(), "Lỗiiiii", Toast.LENGTH_SHORT).show();

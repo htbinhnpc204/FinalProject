@@ -24,50 +24,61 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.01">
 
-        <TextView
-            android:id="@+id/textviewtongtienphainop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textviewhocky"
-            android:layout_alignLeft="@+id/textviewhocky"
-            android:layout_marginTop="4dp"
-            android:text="Tổng: "
-            android:textColor="@color/main_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textvhocky"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:text="Học kỳ: "
+                android:textColor="@color/main_color"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textviewtongtienpn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textviewhocky"
-            android:layout_marginTop="4dp"
-            android:layout_toRightOf="@+id/textviewtongtienphainop"
-            android:text="7,538,800 đồng"
-            android:textColor="@color/main_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textviewhocky"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Học kỳ 1 "
+                android:textColor="@color/main_color"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textvhocky"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textviewxemchitiethocphi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textviewtongtienpn"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:paddingBottom="5dp"
-            android:text="Xem chi tiết"
-            android:textColor="@color/middle_color"
-            android:textSize="15sp" />
+            <TextView
+                android:id="@+id/textviewxemchitiethocphi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:text="Xem chi tiết"
+                android:textColor="@color/middle_color"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textviewhocky" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/itemnoidunghocphi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textviewxemchitiethocphi"
-            android:layout_marginTop="8dp"
+            android:layout_below="@+id/itemHocphi"
+            android:layout_alignStart="@+id/itemHocphi"
+            android:layout_alignEnd="@+id/itemHocphi"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="0dp"
             android:paddingBottom="10dp"
             android:visibility="gone">
 
@@ -131,19 +142,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/textviewhpphainop" />
 
             <TextView
-                android:id="@+id/textviewsodukytruoc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Số dư kì trước: "
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/textviewsonokytruoc"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/textviewsonokytruoc"
-                app:layout_constraintTop_toBottomOf="@+id/textviewsonokytruoc" />
-
-            <TextView
                 android:id="@+id/textviewsonkt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -157,17 +155,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/textviewhppn" />
 
             <TextView
-                android:id="@+id/textviewsodkt"
+                android:id="@+id/textviewtongtienphainop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="668,200"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/textviewsonkt"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/textviewsonkt"
-                app:layout_constraintTop_toBottomOf="@+id/textviewsonkt" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Tổng: "
+                android:textColor="@color/main_color"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textviewsonokytruoc" />
+
+            <TextView
+                android:id="@+id/textviewtongtienpn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:text="7,538,800 đồng"
+                android:textColor="@color/main_color"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textviewtongtienphainop"
+                app:layout_constraintTop_toBottomOf="@+id/textviewsonokytruoc" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
