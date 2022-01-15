@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -21,6 +22,7 @@ import com.htbinh.finalproject.Dialog.LoadingDialog;
 import com.htbinh.finalproject.R;
 import com.htbinh.finalproject.Services.SessionServices;
 import com.htbinh.finalproject.databinding.FragmentResultBinding;
+import com.htbinh.finalproject.ui.personInfo.StudentModel;
 import com.htbinh.finalproject.ui.result.resultdetails.ResultDetailsModel;
 
 import org.json.JSONArray;
@@ -51,7 +53,8 @@ public class ResultFragment extends Fragment {
         final ListView listView= binding.resultList;
         adapter = new ResultAdapter(container.getContext(), R.layout.item_ketqua,resultModelArrayList);
         listView.setAdapter(adapter);
-        final String api = "https://studentapp-backend.herokuapp.com/sinhvien/kqhoctap/chitiet?hocKy=";
+        StudentModel sModel = SessionServices.getPersonInfoModel();
+        final String api = "https://studentapp-backend.herokuapp.com/sinhvien/hkresult/details/" + sModel.getMa_sv() + "?maHk=";
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -73,21 +76,19 @@ public class ResultFragment extends Fragment {
                                 list.add(new ResultDetailsModel(
                                         obj.getString("tenMh"),
                                         obj.getString("maHp"),
+                                        obj.getString("diemChu"),
                                         obj.getString("tinChi"),
-                                        obj.getString("diemCc"),
-                                        obj.getString("diemGk"),
-                                        obj.getString("diemCk"),
-                                        obj.getString("diemTk"),
-                                        obj.getString("diemChu")));
+                                        obj.getString("diemTk")
+                                ));
                             }
                         }catch (Exception e){}
                         b.putParcelableArrayList("list", list);
-                        Navigation.findNavController(view).navigate(R.id.nav_newsdetails, b);
+                        Navigation.findNavController(view).navigate(R.id.nav_resultdetails, b);
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        loading.dismissLoading();
                     }
                 });
 

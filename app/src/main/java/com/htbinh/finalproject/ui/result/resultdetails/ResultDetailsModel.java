@@ -4,35 +4,26 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class ResultDetailsModel implements Parcelable {
-    private String TenHP;
-    private String MaHp;
-    private String sotc;
-    private String diemcc;
-    private String diemgk;
-    private String diemck;
-    private String diemtk;
-    private String diemchu;
+    private String tenMh;
+    private String maHp;
+    private String diemChu;
+    private String tinChi;
+    private String diemTk;
 
-    public ResultDetailsModel(String tenHP, String maHp, String sotc, String diemcc, String diemgk, String diemck, String diemtk, String diemchu) {
-        TenHP = tenHP;
-        MaHp = maHp;
-        this.sotc = sotc;
-        this.diemcc = diemcc;
-        this.diemgk = diemgk;
-        this.diemck = diemck;
-        this.diemtk = diemtk;
-        this.diemchu = diemchu;
+    public ResultDetailsModel(String tenMh, String maHp, String diemChu, String tinChi, String diemTk) {
+        this.tenMh = tenMh;
+        this.maHp = maHp;
+        this.diemChu = diemChu;
+        this.tinChi = tinChi;
+        this.diemTk = diemTk;
     }
 
     protected ResultDetailsModel(Parcel in) {
-        TenHP = in.readString();
-        MaHp = in.readString();
-        sotc = in.readString();
-        diemcc = in.readString();
-        diemgk = in.readString();
-        diemck = in.readString();
-        diemtk = in.readString();
-        diemchu = in.readString();
+        tenMh = in.readString();
+        maHp = in.readString();
+        diemChu = in.readString();
+        tinChi = in.readString();
+        diemTk = in.readString();
     }
 
     public static final Creator<ResultDetailsModel> CREATOR = new Creator<ResultDetailsModel>() {
@@ -47,68 +38,44 @@ public class ResultDetailsModel implements Parcelable {
         }
     };
 
-    public String getTenHP() {
-        return TenHP;
+    public String getTenMh() {
+        return tenMh;
     }
 
-    public void setTenHP(String tenHP) {
-        TenHP = tenHP;
+    public void setTenMh(String tenMh) {
+        this.tenMh = tenMh;
     }
 
     public String getMaHp() {
-        return MaHp;
+        return maHp;
     }
 
     public void setMaHp(String maHp) {
-        MaHp = maHp;
+        this.maHp = maHp;
     }
 
-    public String getSotc() {
-        return sotc;
+    public String getDiemChu() {
+        return diemChu;
     }
 
-    public void setSotc(String sotc) {
-        this.sotc = sotc;
+    public void setDiemChu(String diemChu) {
+        this.diemChu = diemChu;
     }
 
-    public String getDiemcc() {
-        return diemcc;
+    public String getTinChi() {
+        return tinChi;
     }
 
-    public void setDiemcc(String diemcc) {
-        this.diemcc = diemcc;
+    public void setTinChi(String tinChi) {
+        this.tinChi = tinChi;
     }
 
-    public String getDiemgk() {
-        return diemgk;
+    public String getDiemTk() {
+        return diemTk;
     }
 
-    public void setDiemgk(String diemgk) {
-        this.diemgk = diemgk;
-    }
-
-    public String getDiemck() {
-        return diemck;
-    }
-
-    public void setDiemck(String diemck) {
-        this.diemck = diemck;
-    }
-
-    public String getDiemtk() {
-        return diemtk;
-    }
-
-    public void setDiemtk(String diemtk) {
-        this.diemtk = diemtk;
-    }
-
-    public String getDiemchu() {
-        return diemchu;
-    }
-
-    public void setDiemchu(String diemchu) {
-        this.diemchu = diemchu;
+    public void setDiemTk(String diemTk) {
+        this.diemTk = diemTk;
     }
 
     @Override
@@ -116,15 +83,13 @@ public class ResultDetailsModel implements Parcelable {
         return 0;
     }
 
+
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(TenHP);
-        parcel.writeString(MaHp);
-        parcel.writeString(sotc);
-        parcel.writeString(diemcc);
-        parcel.writeString(diemgk);
-        parcel.writeString(diemck);
-        parcel.writeString(diemtk);
-        parcel.writeString(diemchu);
+        parcel.writeString(tenMh);
+        parcel.writeString(maHp);
+        parcel.writeString(diemChu);
+        parcel.writeString(tinChi);
+        parcel.writeString(diemTk);
     }
 }
