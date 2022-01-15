@@ -23,6 +23,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.htbinh.finalproject.R;
 import com.htbinh.finalproject.Services.SessionServices;
 import com.htbinh.finalproject.databinding.ActivityMainBinding;
+import com.htbinh.finalproject.ui.personInfo.StudentModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,10 +57,11 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         View headerView = navigationView.getHeaderView(0);
-        TextView navUsername = (TextView) headerView.findViewById(R.id.header_title);
-//        navUsername.setText(session.getName());
-//        TextView navTitle = (TextView) headerView.findViewById(R.id.header_dob);
-//        navTitle.setText(session.getDob());
+        TextView navUsername = (TextView) headerView.findViewById(R.id.header_name);
+        StudentModel studentModel = SessionServices.getPersonInfoModel();
+        navUsername.setText("Tên sinh viên: " + studentModel.getTen_sv());
+        TextView navTitle = (TextView) headerView.findViewById(R.id.hear_msv);
+        navTitle.setText("Mã sinh viên: " + studentModel.getMa_sv());
     }
 
     @Override

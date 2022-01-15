@@ -13,73 +13,46 @@
         android:layout_marginHorizontal="16dp"
         android:background="@drawable/ic_bg_card">
 
-        <TextView
-            android:id="@+id/textviewhocky"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="10dp"
-            android:text="Học kỳ 1 "
-            android:textColor="@color/main_color"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.01">
-
-            <TextView
-                android:id="@+id/textvhocky"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="10dp"
-                android:text="Học kỳ: "
-                android:textColor="@color/main_color"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+        <RelativeLayout
+            android:id="@+id/mainBlock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/textviewhocky"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
-                android:text="Học kỳ 1 "
+                android:text="Học kỳ:"
                 android:textColor="@color/main_color"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/textvhocky"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textviewxemchitiethocphi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/textviewhocky"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:paddingBottom="5dp"
                 android:text="Xem chi tiết"
                 android:textColor="@color/middle_color"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textviewhocky" />
+                android:textSize="15sp" />
+        </RelativeLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/itemnoidunghocphi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/itemHocphi"
-            android:layout_alignStart="@+id/itemHocphi"
-            android:layout_alignEnd="@+id/itemHocphi"
             android:layout_marginStart="0dp"
             android:layout_marginTop="2dp"
             android:layout_marginEnd="0dp"
             android:paddingBottom="10dp"
+            android:layout_below="@+id/mainBlock"
             android:visibility="gone">
 
             <TextView

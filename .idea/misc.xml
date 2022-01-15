@@ -23,9 +23,10 @@
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_person_infor.xml" value="0.25" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_resultdetails.xml" value="0.1" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_schedule.xml" value="0.13994565217391305" />
-        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_schedule_day.xml" value="0.13994565217391305" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_schedule_day.xml" value="0.5" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/fragment_schedule_week.xml" value="0.23425925925925925" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_chitietketqua.xml" value="0.67" />
+        <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_exam_schedule.xml" value="0.36666666666666664" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_ketqua.xml" value="0.5" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_news.xml" value="0.33" />
         <entry key="..\:/Android/FinalProject/app/src/main/res/layout/item_notification.xml" value="0.23385416666666667" />
@@ -66,9 +67,6 @@
         <entry key="..\:/noti_tuiton/FinalProject/app/src/main/res/layout/item_notification.xml" value="0.259375" />
         <entry key="..\:/noti_tuiton/FinalProject/app/src/main/res/layout/item_tuitionfee.xml" value="0.259375" />
         <entry key="..\:/noti_tuiton/FinalProject/app/src/main/res/menu/activity_main_drawer.xml" value="0.2553846153846154" />
-        <entry key="..\:/notify_tuition/FinalProject/app/src/main/res/layout/fragment_notification.xml" value="0.2388888888888889" />
-        <entry key="..\:/notify_tuition/FinalProject/app/src/main/res/layout/item_notification.xml" value="0.259375" />
-        <entry key="..\:/notify_tuition/FinalProject/app/src/main/res/layout/item_tuitionfee.xml" value="0.2" />
         <entry key="..\:/tuitionfee/FinalProject/app/src/main/res/layout/fragment_tuitionfee.xml" value="0.23333333333333334" />
         <entry key="..\:/tuitionfee/FinalProject/app/src/main/res/layout/item_tuitionfee.xml" value="0.3594864479315264" />
       </map>

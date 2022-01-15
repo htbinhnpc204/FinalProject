@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private final String baseURL = "https://studentapp-backend.herokuapp.com/";
     private final String loginURL = "login";
-    private final String personInfoURL = "sinhvien/getinfo";
+    private final String personInfoURL = "sinhvien/info/";
     private final String scheduleURL = "sinhvien/schedule/";
     private final String newsURL = "getNews";
     private final String resultURL = "sinhvien/hkresult/";
@@ -192,45 +192,17 @@ public class LoginActivity extends AppCompatActivity {
         //Make all request here !!
         //region Request
         //notification
-        ArrayList<NotificationModel> notification = new ArrayList<>();
-        JsonArrayRequest notificationRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, notificationURL, msv), null,
+
+        //tuitionfee
+        ArrayList<TuitionfeeModel> tuitionfee = new ArrayList<>();
+        JsonArrayRequest tuitionfeeRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, tuitionURL, msv), null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        Toast.makeText(getApplicationContext(), response.length() + "", Toast.LENGTH_LONG).show();
-                        for(int i = 0; i < response.length(); i++){
+                        for (int i = 0; i < response.length(); i++) {
                             try {
                                 JSONObject obj = response.getJSONObject(i);
-                                notification.add( new NotificationModel(
-                                        obj.getString("tengv"),
-                                        obj.getString("lophp"),
-                                        obj.getString("ngaynhan"),
-                                        obj.getString("noidung")
-                                ));
-                            } catch (JSONException e) {
-                            }
-                        }
-                        SessionServices.setListNotification(notification);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "notification could not be loaded!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                //tuitionfee
-                ArrayList<TuitionfeeModel> tuitionfee = new ArrayList<>();
-                JsonArrayRequest tuitionfeeRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, tuitionURL, msv), null,
-                    new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Toast.makeText(getApplicationContext(), response.length() + "", Toast.LENGTH_LONG).show();
-                        for(int i = 0; i < response.length(); i++){
-                            try {
-                                JSONObject obj = response.getJSONObject(i);
-                                tuitionfee.add( new TuitionfeeModel(
+                                tuitionfee.add(new TuitionfeeModel(
                                         obj.getString("hocKy"),
                                         obj.getString("soTinChi"),
                                         obj.getString("hocPhi"),
@@ -364,6 +336,8 @@ public class LoginActivity extends AppCompatActivity {
                             Log.e("Info log", "" + e.toString());
                         }
                         SessionServices.setPersonInfoModel(personInfoModel);
+                        loading.dismissLoading();
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     }
                 },
                 new Response.ErrorListener() {
@@ -453,9 +427,6 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                         SessionServices.setListNews(news);
-
-                        loading.dismissLoading();
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     }
                 },
                 new Response.ErrorListener() {
@@ -471,10 +442,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 if (response.equals("true")) {
                     queue.add(newsRequest);
-                    queue.add(personInfoRequest);
                     queue.add(scheduleRequest);
                     queue.add(examScheduleRequest);
                     queue.add(tuitionfeeRequest);
+                    queue.add(personInfoRequest);
 //                    queue.add(notificationRequest);
 //                    queue.add(resultRequest);
                 } else {
@@ -518,7 +489,8 @@ public class LoginActivity extends AppCompatActivity {
                     , Toast.LENGTH_SHORT).show();
         }
     }
-//ua sao day
+
+    //ua sao day
     private String getLink(String base, String api, String msv) {
         return base + api + msv;
     }

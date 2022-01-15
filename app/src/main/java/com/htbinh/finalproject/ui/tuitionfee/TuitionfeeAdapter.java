@@ -61,9 +61,7 @@ public class TuitionfeeAdapter extends BaseAdapter {
         TextView sonokt = view.findViewById(R.id.textviewsonkt);
         TextView tongtien = view.findViewById(R.id.textviewtongtienpn);
 
-
-
-        hocky.setText(HOCPHI.getHocki().substring(HOCPHI.getHocki().indexOf("-")+1));
+        hocky.setText("Học kỳ: " + HOCPHI.getHocki());
         sotcdk.setText(HOCPHI.getStcdk());
         hocphipn.setText(HOCPHI.getHocphipn());
         sonokt.setText(HOCPHI.getSonokt());

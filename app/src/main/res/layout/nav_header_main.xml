@@ -25,11 +25,12 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:shadowColor="@color/grey"
+        android:shadowDx="5"
         android:shadowDy="7"
         android:shadowRadius="6"
         android:text="Hồ Thái Bình"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:textStyle="bold" />
 
     <TextView
@@ -40,6 +41,7 @@
         android:text="1911505310105"
         android:textColor="@color/white"
         android:shadowColor="@color/grey"
+        android:shadowDx="3"
         android:shadowDy="5"
         android:shadowRadius="5"/>
 </LinearLayout>
