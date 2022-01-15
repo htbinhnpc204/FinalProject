@@ -70,15 +70,17 @@ public class LoginActivity extends AppCompatActivity {
     //endregion
 
     //region APIlink
+
     private final String baseURL = "https://studentapp-backend.herokuapp.com/";
     private final String loginURL = "login";
     private final String personInfoURL = "sinhvien/info/";
-    private final String scheduleURL = "sinhvien/gettkb";
+    private final String scheduleURL = "sinhvien/schedule/";
     private final String newsURL = "getNews";
-    private final String resultURL = "sinhvien/kqhoctap";
+    private final String resultURL = "sinhvien/hkresult/";
     private final String notificationURL = "sinhvien/getnoti";
-    private final String tuitionURL = "sinhvien/getfee";
+    private final String tuitionURL = "sinhvien/getfee/";
     private final String examScheduleURL = "sinhvien/examSchedule/";
+
     //endregion
 
     Animation topAnimation;
@@ -189,6 +191,65 @@ public class LoginActivity extends AppCompatActivity {
 
         //Make all request here !!
         //region Request
+        //notification
+        ArrayList<NotificationModel> notification = new ArrayList<>();
+        JsonArrayRequest notificationRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, notificationURL, msv), null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Toast.makeText(getApplicationContext(), response.length() + "", Toast.LENGTH_LONG).show();
+                        for(int i = 0; i < response.length(); i++){
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                notification.add( new NotificationModel(
+                                        obj.getString("tengv"),
+                                        obj.getString("lophp"),
+                                        obj.getString("ngaynhan"),
+                                        obj.getString("noidung")
+                                ));
+                            } catch (JSONException e) {
+                            }
+                        }
+                        SessionServices.setListNotification(notification);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "notification could not be loaded!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                //tuitionfee
+                ArrayList<TuitionfeeModel> tuitionfee = new ArrayList<>();
+                JsonArrayRequest tuitionfeeRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, tuitionURL, msv), null,
+                    new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Toast.makeText(getApplicationContext(), response.length() + "", Toast.LENGTH_LONG).show();
+                        for(int i = 0; i < response.length(); i++){
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                tuitionfee.add( new TuitionfeeModel(
+                                        obj.getString("hocKy"),
+                                        obj.getString("soTinChi"),
+                                        obj.getString("hocPhi"),
+                                        obj.getString("noKyTruoc"),
+                                        obj.getString("tong")
+                                ));
+                            } catch (JSONException e) {
+                            }
+                        }
+                        SessionServices.setListTuition(tuitionfee);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "Tuition could not be loaded!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
 
 //        ArrayList<ResultModel> result = new ArrayList<>();
 //        JsonArrayRequest resultRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, resultURL, msv), null,
@@ -250,37 +311,7 @@ public class LoginActivity extends AppCompatActivity {
 //                    }
 //                });
 //
-//        //tuitionfee
-//        ArrayList<TuitionfeeModel> tuitionfee = new ArrayList<>();
-//        JsonArrayRequest tuitionfeeRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, tuitionURL, msv), null,
-//                new Response.Listener<JSONArray>() {
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//                        for (int i = 0; i < response.length(); i++) {
-//                            try {
-//                                JSONObject obj = response.getJSONObject(i);
-//                                tuitionfee.add(new TuitionfeeModel(
-//                                        obj.getString("hocKy"),
-//                                        obj.getString("soTinChi"),
-//                                        obj.getString("hocPhi"),
-//                                        obj.getString("noKyTruoc"),
-//                                        obj.getString("duKyTruoc"),
-//                                        obj.getString("tong")
-//                                ));
-//                            } catch (JSONException e) {
-//                            }
-//                        }
-//                        SessionServices.setListTuition(tuitionfee);
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(getApplicationContext(), "Tuition could not be loaded!", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//
-//
+
         ArrayList<ExamScheduleModel> examScheduleModels = new ArrayList<>();
         JsonArrayRequest examScheduleRequest = new JsonArrayRequest(Request.Method.GET, getLink(baseURL, examScheduleURL, msv), null,
                 new Response.Listener<JSONArray>() {

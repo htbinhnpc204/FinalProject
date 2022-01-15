@@ -36,6 +36,8 @@ public class TuitionfeeFragment extends Fragment {
         final ListView listView= binding.listTuitionfee;
         adapter = new TuitionfeeAdapter(container.getContext(), R.layout.item_tuitionfee,tuitionfeeModels);
         listView.setAdapter(adapter);
+
+
         return root;
     }
 }
