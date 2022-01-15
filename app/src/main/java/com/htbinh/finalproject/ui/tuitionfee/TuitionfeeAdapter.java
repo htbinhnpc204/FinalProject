@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -51,7 +52,7 @@ public class TuitionfeeAdapter extends BaseAdapter {
 
         TuitionfeeModel HOCPHI = arrayList.get(i);
         //anh xa
-        ConstraintLayout itemhocphi = view.findViewById(R.id.itemHocphi);
+        RelativeLayout itemhocphi = view.findViewById(R.id.itemHocphi);
         ConstraintLayout itemnoidunghp = view.findViewById(R.id.itemnoidunghocphi);
         TextView hocky= view.findViewById(R.id.textviewhocky);
         TextView xemchitiethp = view.findViewById(R.id.textviewxemchitiethocphi);
@@ -60,7 +61,9 @@ public class TuitionfeeAdapter extends BaseAdapter {
         TextView sonokt = view.findViewById(R.id.textviewsonkt);
         TextView tongtien = view.findViewById(R.id.textviewtongtienpn);
 
-        hocky.setText(HOCPHI.getHocki());
+
+
+        hocky.setText(HOCPHI.getHocki().substring(HOCPHI.getHocki().indexOf("-")+1));
         sotcdk.setText(HOCPHI.getStcdk());
         hocphipn.setText(HOCPHI.getHocphipn());
         sonokt.setText(HOCPHI.getSonokt());

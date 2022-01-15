@@ -1,6 +1,9 @@
-package com.htbinh.finalproject.ui.resultdetails;
+package com.htbinh.finalproject.ui.result.resultdetails;
 
-public class ResultDetailsModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ResultDetailsModel implements Parcelable {
     private String TenHP;
     private String MaHp;
     private String sotc;
@@ -20,6 +23,29 @@ public class ResultDetailsModel {
         this.diemtk = diemtk;
         this.diemchu = diemchu;
     }
+
+    protected ResultDetailsModel(Parcel in) {
+        TenHP = in.readString();
+        MaHp = in.readString();
+        sotc = in.readString();
+        diemcc = in.readString();
+        diemgk = in.readString();
+        diemck = in.readString();
+        diemtk = in.readString();
+        diemchu = in.readString();
+    }
+
+    public static final Creator<ResultDetailsModel> CREATOR = new Creator<ResultDetailsModel>() {
+        @Override
+        public ResultDetailsModel createFromParcel(Parcel in) {
+            return new ResultDetailsModel(in);
+        }
+
+        @Override
+        public ResultDetailsModel[] newArray(int size) {
+            return new ResultDetailsModel[size];
+        }
+    };
 
     public String getTenHP() {
         return TenHP;
@@ -83,5 +109,22 @@ public class ResultDetailsModel {
 
     public void setDiemchu(String diemchu) {
         this.diemchu = diemchu;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(TenHP);
+        parcel.writeString(MaHp);
+        parcel.writeString(sotc);
+        parcel.writeString(diemcc);
+        parcel.writeString(diemgk);
+        parcel.writeString(diemck);
+        parcel.writeString(diemtk);
+        parcel.writeString(diemchu);
     }
 }

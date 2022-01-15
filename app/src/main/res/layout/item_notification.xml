@@ -4,18 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_bg_card"
-
         android:layout_marginHorizontal="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/itemThongbao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
             android:background="@drawable/ic_bg_card"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +53,7 @@
                 android:id="@+id/textviewlophocphan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="10dp"
                 android:text="Lớp Học Phần: "
                 android:textColor="@color/black"
@@ -127,11 +126,6 @@
                 android:divider="@android:color/transparent"
                 android:dividerHeight="10dp" />
 
-
         </LinearLayout>
     </RelativeLayout>
-
-
-
-
 </RelativeLayout>

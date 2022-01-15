@@ -6,9 +6,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class scheduleFragmentAdapter extends FragmentStateAdapter {
+import com.htbinh.finalproject.ui.schedule.Day.ScheduleDayFragment;
+import com.htbinh.finalproject.ui.schedule.Week.ScheduleWeekFragment;
 
-    public scheduleFragmentAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
+public class ScheduleAdapter extends FragmentStateAdapter {
+
+    public ScheduleAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
     }
 
@@ -18,10 +21,10 @@ public class scheduleFragmentAdapter extends FragmentStateAdapter {
 
         switch (position){
             case 1:
-                return new WeekFragment();
+                return new ScheduleWeekFragment();
         }
 
-        return new DayFragment();
+        return new ScheduleDayFragment();
     }
 
     @Override

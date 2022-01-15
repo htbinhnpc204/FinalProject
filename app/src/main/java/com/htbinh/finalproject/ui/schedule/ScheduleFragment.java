@@ -4,23 +4,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.htbinh.finalproject.databinding.FragmentScheduleBinding;
 import com.htbinh.finalproject.ui.home.HomeViewModel;
 
-public class scheduleFragment extends Fragment {
+public class ScheduleFragment extends Fragment {
 
     TabLayout tabLayout;
     ViewPager2 viewPager2;
-    scheduleFragmentAdapter adapter;
+    ScheduleAdapter adapter;
 
     private HomeViewModel homeViewModel;
     private FragmentScheduleBinding binding;
@@ -40,7 +37,7 @@ public class scheduleFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("Theo ngày"));
         tabLayout.addTab(tabLayout.newTab().setText("Theo tuần"));
 
-        adapter = new scheduleFragmentAdapter(getFragmentManager() , getLifecycle());
+        adapter = new ScheduleAdapter(getFragmentManager() , getLifecycle());
         viewPager2.setAdapter(adapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

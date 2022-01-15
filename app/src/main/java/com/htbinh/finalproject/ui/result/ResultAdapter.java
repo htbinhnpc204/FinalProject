@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.htbinh.finalproject.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ResultAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return (ketquaList == null) ? 0 : ketquaList.size();
+        return ketquaList.size();
     }
 
     @Override
@@ -44,23 +45,19 @@ public class ResultAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(layout,null);
 
-        TextView txtname=(TextView) view.findViewById(R.id.textviewname);
-        TextView txttinchi = (TextView)  view.findViewById(R.id.textViewtc);
-        TextView txthocky = (TextView) view.findViewById(R.id.textViewdiem);
-        TextView txthocbong = (TextView)  view.findViewById(R.id.textViewhbong);
-        TextView txtxeploai = (TextView) view.findViewById(R.id.textViewxl);
+        TextView hocky =(TextView) view.findViewById(R.id.textviewname);
+        TextView soTcTichLuy = (TextView)  view.findViewById(R.id.textViewtc);
+        TextView xeploai = (TextView) view.findViewById(R.id.textViewxl);
+        TextView diemTbcHocKy = (TextView) view.findViewById(R.id.textViewdiem);
+        TextView diemTbcHocBong  = (TextView)  view.findViewById(R.id.textViewhbong);
 
         ResultModel ketqua = ketquaList.get(i);
 
-        txtname.setText((ketqua.getName()));
-        txttinchi.setText((ketqua.getTinchi()));
-        txthocky.setText((ketqua.getDiemtbhk()));
-        txthocbong.setText((ketqua.getDiemtbhb()));
-        txtxeploai.setText((ketqua.getXeploai()));
-
-        Animation anim = AnimationUtils.loadAnimation(context, R.anim.left_slide);
-        view.startAnimation(anim);
-
+        hocky.setText(ketqua.getHocky());
+        soTcTichLuy.setText(ketqua.getSoTcTichLuy());
+        xeploai.setText(ketqua.getXeploai());
+        diemTbcHocKy.setText(ketqua.getDiemTbcHocKy());
+        diemTbcHocBong.setText(ketqua.getDiemTbcHocBong());
         return view;
     }
 }

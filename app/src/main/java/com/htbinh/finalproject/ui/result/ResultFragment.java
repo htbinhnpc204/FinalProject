@@ -1,8 +1,6 @@
 package com.htbinh.finalproject.ui.result;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,44 +9,89 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.htbinh.finalproject.Dialog.LoadingDialog;
 import com.htbinh.finalproject.R;
+import com.htbinh.finalproject.Services.SessionServices;
 import com.htbinh.finalproject.databinding.FragmentResultBinding;
+import com.htbinh.finalproject.ui.result.resultdetails.ResultDetailsModel;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 public class ResultFragment extends Fragment {
     ResultAdapter adapter;
-
     ArrayList<ResultModel> resultModelArrayList;
     private FragmentResultBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+                             ViewGroup container, Bundle savedInstanceState){
+
+
+        if(SessionServices.getListResult() != null){
+            resultModelArrayList = SessionServices.getListResult();
+        }
+        else{
+            resultModelArrayList = new ArrayList<>();
+        }
 
         binding = FragmentResultBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        final ListView listView = binding.resultList;
 
-        resultModelArrayList = new ArrayList<>();
-        resultModelArrayList.add(new ResultModel(" 1 - Năm học 2021-2022", "24","8","3","Gioi"));
-        resultModelArrayList.add(new ResultModel(" 2 - Năm học 2021-2022", "20","10","4","xuat sac"));
-        resultModelArrayList.add(new ResultModel(" 3 - Năm học 2021-2022", "21","6.5","2.3","Binh thuong"));
-        resultModelArrayList.add(new ResultModel(" 4 - Năm học 2021-2022", "24","8","3","Gioi"));
-        resultModelArrayList.add(new ResultModel(" 5 - Năm học 2021-2022", "20","10","4","xuat sac"));
-        resultModelArrayList.add(new ResultModel(" 6 - Năm học 2021-2022", "21","6.5","2.3","Binh thuong"));
+
+        final ListView listView= binding.resultList;
         adapter = new ResultAdapter(container.getContext(), R.layout.item_ketqua,resultModelArrayList);
         listView.setAdapter(adapter);
+        final String api = "https://studentapp-backend.herokuapp.com/sinhvien/kqhoctap/chitiet?hocKy=";
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Bundle sendBundle = new Bundle();
-                sendBundle.putString("name", resultModelArrayList.get(position).getName());
-                Navigation.findNavController(view).navigate(R.id.nav_resultdetails, sendBundle);
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Bundle b = new Bundle();
+                String hocKy = resultModelArrayList.get(i).getHocky();
+                b.putString("hocKy", hocKy);
+                RequestQueue queue = Volley.newRequestQueue(getActivity());
+                final LoadingDialog loading = new LoadingDialog(getActivity());
+                loading.startLoading();
+                ArrayList<ResultDetailsModel> list = new ArrayList<>();
+                JsonArrayRequest details = new JsonArrayRequest(Request.Method.GET, api + hocKy.replaceAll("\\D", ""), null, new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        loading.dismissLoading();
+                        try{
+                            for(int i = 0; i < response.length(); i++){
+                                JSONObject obj = response.getJSONObject(i);
+                                list.add(new ResultDetailsModel(
+                                        obj.getString("tenMh"),
+                                        obj.getString("maHp"),
+                                        obj.getString("tinChi"),
+                                        obj.getString("diemCc"),
+                                        obj.getString("diemGk"),
+                                        obj.getString("diemCk"),
+                                        obj.getString("diemTk"),
+                                        obj.getString("diemChu")));
+                            }
+                        }catch (Exception e){}
+                        b.putParcelableArrayList("list", list);
+                        Navigation.findNavController(view).navigate(R.id.nav_newsdetails, b);
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+                queue.add(details);
             }
         });
 

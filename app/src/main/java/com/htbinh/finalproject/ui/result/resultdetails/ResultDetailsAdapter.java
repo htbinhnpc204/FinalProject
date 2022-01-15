@@ -1,4 +1,4 @@
-package com.htbinh.finalproject.ui.resultdetails;
+package com.htbinh.finalproject.ui.result.resultdetails;
 
 import android.content.Context;
 import android.view.LayoutInflater;
